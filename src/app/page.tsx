@@ -1,69 +1,53 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Hero from '@/components/hero/Hero';
+import CategoryGrid from '@/components/sections/CategoryGrid';
+import ProductSection from '@/components/sections/ProductSection';
+import ServicesPreview from '@/components/sections/ServicesPreview';
+import WhyAquaPro from '@/components/sections/WhyAquaPro';
+import ContactCTA from '@/components/sections/ContactCTA';
+import { getFeaturedProducts, getNewArrivals } from '@/lib/products';
 
-export default function Home() {
+export default function HomePage() {
+  const featured = getFeaturedProducts();
+  const newArrivals = getNewArrivals();
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      {/* 01 — Hero */}
+      <Hero />
+
+      {/* 02 — Shop by Category */}
+      <CategoryGrid />
+
+      {/* 03 — New Arrivals */}
+      <ProductSection
+        label="Just Arrived"
+        title="New Arrivals"
+        subtitle="The latest additions to our live fish and equipment collection."
+        products={newArrivals}
+        viewAllHref="/shop"
+        viewAllLabel="View All Products"
+        id="new-arrivals"
+      />
+
+      {/* 04 — Featured Products */}
+      <ProductSection
+        label="Curated Selection"
+        title="Featured Products"
+        subtitle="Handpicked equipment and livestock recommended by our team."
+        products={featured}
+        viewAllHref="/shop"
+        viewAllLabel="Browse All"
+        id="featured-products"
+      />
+
+      {/* 05 — Services */}
+      <ServicesPreview />
+
+      {/* 06 — Why Aqua Pro */}
+      <WhyAquaPro />
+
+      {/* 07 — Contact CTA */}
+      <ContactCTA />
+    </>
   );
 }
