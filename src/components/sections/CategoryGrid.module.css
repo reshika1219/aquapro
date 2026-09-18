@@ -1,0 +1,103 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 1;
+  text-decoration: none;
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0, 180, 216, 0.2);
+}
+
+/* Gradient overlay on tile */
+.tileOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.2) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.tileContent {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-5);
+  width: 100%;
+}
+
+.tileName {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--pure-white);
+  margin-bottom: var(--space-1);
+}
+
+.tileCount {
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+}
+
+/* Icon placeholder for categories without images */
+.tileIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 48px;
+  height: 48px;
+  color: var(--ocean-light);
+  opacity: 0.4;
+  transition: opacity var(--transition-base), color var(--transition-base);
+}
+
+.tile:hover .tileIcon {
+  opacity: 0.6;
+  color: var(--aqua);
+}
+
+/* Feature tiles (first two categories wider) */
+.tile:nth-child(1),
+.tile:nth-child(2) {
+  grid-column: span 2;
+  aspect-ratio: 2 / 1;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tile:nth-child(1),
+  .tile:nth-child(2) {
+    grid-column: span 1;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  .tile {
+    aspect-ratio: 1;
+  }
+  .tileContent {
+    padding: var(--space-4);
+  }
+  .tileName {
+    font-size: var(--text-sm);
+  }
+}
