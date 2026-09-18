@@ -1,0 +1,124 @@
+[
+  {
+    "id": "live-aquatics",
+    "name": "Live Aquatics",
+    "slug": "live-aquatics",
+    "description": "Healthy freshwater and marine fish, shrimp, snails, and aquatic plants.",
+    "order": 1,
+    "subcategories": [
+      { "id": "freshwater-fish", "name": "Freshwater Fish", "slug": "freshwater-fish", "description": "Tropical and coldwater freshwater species.", "order": 1 },
+      { "id": "marine-fish", "name": "Marine Fish", "slug": "marine-fish", "description": "Saltwater species for reef and marine aquariums.", "order": 2 },
+      { "id": "bettas", "name": "Bettas", "slug": "bettas", "description": "Siamese fighting fish in a range of varieties.", "order": 3 },
+      { "id": "guppies", "name": "Guppies", "slug": "guppies", "description": "Colorful and easy-to-keep livebearers.", "order": 4 },
+      { "id": "tetras", "name": "Tetras", "slug": "tetras", "description": "Peaceful schooling fish for community tanks.", "order": 5 },
+      { "id": "cichlids", "name": "Cichlids", "slug": "cichlids", "description": "African and South American cichlid species.", "order": 6 },
+      { "id": "goldfish", "name": "Goldfish", "slug": "goldfish", "description": "Classic and fancy goldfish varieties.", "order": 7 },
+      { "id": "catfish", "name": "Catfish", "slug": "catfish", "description": "Bottom-dwelling catfish and plecostomus.", "order": 8 },
+      { "id": "shrimp", "name": "Shrimp", "slug": "shrimp", "description": "Ornamental shrimp for planted and nano tanks.", "order": 9 },
+      { "id": "snails", "name": "Snails", "slug": "snails", "description": "Aquatic snails for algae control and decoration.", "order": 10 },
+      { "id": "aquatic-plants", "name": "Aquatic Plants", "slug": "aquatic-plants", "description": "Live plants for planted aquariums and aquascaping.", "order": 11 }
+    ]
+  },
+  {
+    "id": "aquariums",
+    "name": "Aquariums",
+    "slug": "aquariums",
+    "description": "Tanks, stands, and complete aquarium setups.",
+    "order": 2,
+    "subcategories": [
+      { "id": "nano-tanks", "name": "Nano Tanks", "slug": "nano-tanks", "description": "Compact tanks under 40 litres.", "order": 1 },
+      { "id": "standard-tanks", "name": "Standard Tanks", "slug": "standard-tanks", "description": "Standard aquarium tanks for home and office.", "order": 2 },
+      { "id": "premium-tanks", "name": "Premium Tanks", "slug": "premium-tanks", "description": "High-end aquarium tanks with superior build quality.", "order": 3 },
+      { "id": "tank-sets", "name": "Tank Sets", "slug": "tank-sets", "description": "Complete aquarium starter kits.", "order": 4 },
+      { "id": "custom-aquariums", "name": "Custom Aquariums", "slug": "custom-aquariums", "description": "Bespoke aquarium builds to your specifications.", "order": 5 },
+      { "id": "stands-cabinets", "name": "Stands & Cabinets", "slug": "stands-cabinets", "description": "Aquarium stands and cabinet furniture.", "order": 6 }
+    ]
+  },
+  {
+    "id": "filtration",
+    "name": "Filtration",
+    "slug": "filtration",
+    "description": "Filters, media, and replacement parts for clean, healthy water.",
+    "order": 3,
+    "subcategories": [
+      { "id": "internal-filters", "name": "Internal Filters", "slug": "internal-filters", "description": "Submersible internal aquarium filters.", "order": 1 },
+      { "id": "external-filters", "name": "External Filters", "slug": "external-filters", "description": "External canister and power filters.", "order": 2 },
+      { "id": "hang-on-back", "name": "Hang-on-Back Filters", "slug": "hang-on-back", "description": "HOB filters for easy installation.", "order": 3 },
+      { "id": "sponge-filters", "name": "Sponge Filters", "slug": "sponge-filters", "description": "Gentle biological sponge filters.", "order": 4 },
+      { "id": "filter-media", "name": "Filter Media", "slug": "filter-media", "description": "Biological, mechanical, and chemical filter media.", "order": 5 },
+      { "id": "filter-parts", "name": "Replacement Parts", "slug": "filter-parts", "description": "Spare parts and accessories for filters.", "order": 6 }
+    ]
+  },
+  {
+    "id": "equipment",
+    "name": "Equipment",
+    "slug": "equipment",
+    "description": "Pumps, lighting, heaters, and essential aquarium equipment.",
+    "order": 4,
+    "subcategories": [
+      { "id": "water-pumps", "name": "Water Pumps", "slug": "water-pumps", "description": "Submersible and inline water pumps.", "order": 1 },
+      { "id": "air-pumps", "name": "Air Pumps", "slug": "air-pumps", "description": "Air pumps and aeration equipment.", "order": 2 },
+      { "id": "powerheads", "name": "Powerheads & Wavemakers", "slug": "powerheads", "description": "Powerheads and wave makers for circulation.", "order": 3 },
+      { "id": "lighting", "name": "Lighting", "slug": "lighting", "description": "LED aquarium lights and controllers.", "order": 4 },
+      { "id": "heaters", "name": "Heaters", "slug": "heaters", "description": "Aquarium heaters and thermometers.", "order": 5 },
+      { "id": "cooling", "name": "Cooling", "slug": "cooling", "description": "Cooling fans and chillers.", "order": 6 }
+    ]
+  },
+  {
+    "id": "fish-food",
+    "name": "Fish Food",
+    "slug": "fish-food",
+    "description": "Premium nutrition for every species.",
+    "order": 5,
+    "subcategories": [
+      { "id": "pellets", "name": "Pellets", "slug": "pellets", "description": "Sinking and floating pellet food.", "order": 1 },
+      { "id": "flakes", "name": "Flakes", "slug": "flakes", "description": "Flake food for tropical and community fish.", "order": 2 },
+      { "id": "frozen-food", "name": "Frozen Food", "slug": "frozen-food", "description": "Frozen bloodworms, brine shrimp, and more.", "order": 3 },
+      { "id": "live-food", "name": "Live Food", "slug": "live-food", "description": "Live cultures for fish feeding.", "order": 4 },
+      { "id": "specialty-food", "name": "Specialty Food", "slug": "specialty-food", "description": "Species-specific food for cichlids, bottom feeders, shrimp, and more.", "order": 5 }
+    ]
+  },
+  {
+    "id": "aquascaping",
+    "name": "Aquascaping",
+    "slug": "aquascaping",
+    "description": "Hardscape, substrate, and tools for beautiful aquascapes.",
+    "order": 6,
+    "subcategories": [
+      { "id": "rocks", "name": "Rocks", "slug": "rocks", "description": "Natural and decorative aquarium rocks.", "order": 1 },
+      { "id": "driftwood", "name": "Driftwood", "slug": "driftwood", "description": "Natural driftwood for aquascaping.", "order": 2 },
+      { "id": "substrate", "name": "Substrate & Soil", "slug": "substrate", "description": "Aquarium substrate, gravel, sand, and planting soil.", "order": 3 },
+      { "id": "decorations", "name": "Decorations", "slug": "decorations", "description": "Ornaments and artificial decorations.", "order": 4 },
+      { "id": "aquascaping-tools", "name": "Aquascaping Tools", "slug": "aquascaping-tools", "description": "Scissors, tweezers, and planting tools.", "order": 5 }
+    ]
+  },
+  {
+    "id": "water-care",
+    "name": "Water Care",
+    "slug": "water-care",
+    "description": "Conditioners, test kits, medications, and water treatment products.",
+    "order": 7,
+    "subcategories": [
+      { "id": "conditioners", "name": "Conditioners", "slug": "conditioners", "description": "Water conditioners and dechlorinators.", "order": 1 },
+      { "id": "bacteria", "name": "Beneficial Bacteria", "slug": "bacteria", "description": "Biological filter starters and boosters.", "order": 2 },
+      { "id": "fertilizers", "name": "Fertilizers", "slug": "fertilizers", "description": "Plant fertilizers and CO2 supplements.", "order": 3 },
+      { "id": "medicines", "name": "Medicines", "slug": "medicines", "description": "Fish health treatments and medications.", "order": 4 },
+      { "id": "test-kits", "name": "Test Kits", "slug": "test-kits", "description": "Water testing kits for pH, ammonia, nitrite, and more.", "order": 5 },
+      { "id": "cleaning", "name": "Cleaning Products", "slug": "cleaning", "description": "Aquarium cleaning solutions and tools.", "order": 6 }
+    ]
+  },
+  {
+    "id": "accessories",
+    "name": "Accessories",
+    "slug": "accessories",
+    "description": "Nets, feeding tools, tubing, timers, and miscellaneous aquarium accessories.",
+    "order": 8,
+    "subcategories": [
+      { "id": "fish-nets", "name": "Fish Nets", "slug": "fish-nets", "description": "Aquarium nets in various sizes.", "order": 1 },
+      { "id": "feeding-accessories", "name": "Feeding Accessories", "slug": "feeding-accessories", "description": "Feeding rings, automatic feeders, and accessories.", "order": 2 },
+      { "id": "cleaning-tools", "name": "Cleaning Tools", "slug": "cleaning-tools", "description": "Siphons, scrapers, and cleaning equipment.", "order": 3 },
+      { "id": "tubing-parts", "name": "Tubing & Parts", "slug": "tubing-parts", "description": "Tubing, connectors, valves, and spare parts.", "order": 4 },
+      { "id": "timers", "name": "Timers & Electrical", "slug": "timers", "description": "Plug timers and electrical accessories.", "order": 5 }
+    ]
+  }
+]
