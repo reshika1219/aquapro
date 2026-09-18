@@ -1,0 +1,51 @@
+.wishlistHeader {
+  padding-top: calc(var(--header-height) + var(--space-12));
+  padding-bottom: var(--space-12);
+  background: radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.12), transparent 70%),
+              linear-gradient(to bottom, var(--navy), var(--deep-navy));
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.title {
+  font-family: var(--font-playfair);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  color: var(--pure-white);
+  margin-bottom: var(--space-4);
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  color: var(--gray-400);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.wishlistGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+  padding-block: var(--space-16);
+}
+
+.emptyState {
+  text-align: center;
+  padding-block: var(--space-20);
+  background: var(--navy-light);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-2xl);
+  margin-block: var(--space-12);
+}
+
+.emptyTitle {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--pure-white);
+  margin-bottom: var(--space-2);
+}
+
+.emptyDesc {
+  color: var(--gray-400);
+  margin-bottom: var(--space-6);
+}
