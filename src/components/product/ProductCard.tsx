@@ -94,31 +94,40 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </div>
 
-      {/* Add to cart */}
-      <button
-        className={`${styles.addBtn} ${!isAvailable ? styles.disabled : ''}`}
-        onClick={() => isAvailable && addItem(product.id)}
-        disabled={!isAvailable}
-        aria-label={inCart ? 'Added to cart' : 'Add to cart'}
-      >
-        {inCart ? (
-          <>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-            </svg>
-            In Cart
-          </>
-        ) : isAvailable ? (
-          <>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-            {isFish && product.availability !== 'out-of-stock' ? 'Add to Cart (Pickup Only)' : 'Add to Cart'}
-          </>
-        ) : (
-          'Out of Stock'
-        )}
-      </button>
+      {inCart && isAvailable ? (
+        <div className={styles.cartActions}>
+          <button
+            type="button"
+            className={`${styles.addBtn} ${styles.addBtnCompact}`}
+            onClick={() => addItem(product.id)}
+            aria-label="Add another to cart"
+          >
+            Add another
+          </button>
+          <Link href="/cart" className={styles.viewCartBtn}>
+            View cart
+          </Link>
+        </div>
+      ) : (
+        <button
+          type="button"
+          className={`${styles.addBtn} ${!isAvailable ? styles.disabled : ''}`}
+          onClick={() => isAvailable && addItem(product.id)}
+          disabled={!isAvailable}
+          aria-label="Add to cart"
+        >
+          {isAvailable ? (
+            <>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              {isFish ? 'Add to Cart (Pickup Only)' : 'Add to Cart'}
+            </>
+          ) : (
+            'Out of Stock'
+          )}
+        </button>
+      )}
     </article>
   );
 }

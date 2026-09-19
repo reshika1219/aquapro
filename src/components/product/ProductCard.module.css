@@ -174,3 +174,31 @@
   width: 16px;
   height: 16px;
 }
+
+.cartActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.addBtnCompact {
+  border-top: none;
+}
+
+.viewCartBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--pure-white);
+  text-decoration: none;
+  background: var(--aqua);
+  color: var(--deep-navy);
+  transition: opacity var(--transition-fast);
+}
+
+.viewCartBtn:hover {
+  opacity: 0.92;
+}

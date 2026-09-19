@@ -27,6 +27,7 @@ export default function HomePage() {
         viewAllHref="/shop"
         viewAllLabel="View All Products"
         id="new-arrivals"
+        accent="new"
       />
 
       {/* 04 — Featured Products */}
@@ -38,6 +39,7 @@ export default function HomePage() {
         viewAllHref="/shop"
         viewAllLabel="Browse All"
         id="featured-products"
+        accent="featured"
       />
 
       {/* 05 — Services */}
