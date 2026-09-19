@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import siteConfig from '@/data/site.json';
+import { shopCategories } from '@/lib/nav';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -9,14 +10,13 @@ export default function Footer() {
   return (
     <footer className={styles.footer} role="contentinfo">
       <div className={`container ${styles.footerMain}`}>
-        {/* Brand */}
         <div className={styles.brand}>
           <Image
             src="/assets/brand/aqua-pro-logo-horizontal.png"
             alt="Aqua Pro"
             width={140}
             height={40}
-            style={{ width: 'auto', height: 'auto' }}
+            style={{ width: 'auto' }}
             className={styles.brandLogo}
           />
           <p className={styles.brandText}>
@@ -60,20 +60,19 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Shop */}
         <div className={styles.column}>
           <h4>Shop</h4>
           <ul>
-            <li><Link href="/shop/live-aquatics">Live Aquatics</Link></li>
-            <li><Link href="/shop/aquariums">Aquariums</Link></li>
-            <li><Link href="/shop/filtration">Filtration</Link></li>
-            <li><Link href="/shop/equipment">Equipment</Link></li>
-            <li><Link href="/shop/aquascaping">Aquascaping</Link></li>
+            <li><Link href="/shop">All Products</Link></li>
+            {shopCategories.map(cat => (
+              <li key={cat.id}>
+                <Link href={`/shop/${cat.slug}`}>{cat.name}</Link>
+              </li>
+            ))}
             <li><Link href="/offers">Offers</Link></li>
           </ul>
         </div>
 
-        {/* Company */}
         <div className={styles.column}>
           <h4>Company</h4>
           <ul>
@@ -83,18 +82,20 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact */}
         <div className={styles.column}>
           <h4>Contact</h4>
           <ul>
             <li><a href={`tel:+${siteConfig.whatsapp}`}>{siteConfig.phone}</a></li>
             <li><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></li>
-            <li><span style={{ color: 'var(--gray-500)', fontSize: 'var(--text-sm)' }}>{siteConfig.address}</span></li>
+            <li>
+              <a href={siteConfig.mapsUrl} target="_blank" rel="noopener noreferrer">
+                {siteConfig.address}
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
-      {/* Bottom */}
       <div className={`container ${styles.footerBottom}`}>
         <p className={styles.copyright}>
           &copy; {year} Aqua Pro. All rights reserved.
