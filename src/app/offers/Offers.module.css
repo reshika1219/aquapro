@@ -100,3 +100,9 @@
   color: var(--gray-500);
   text-decoration: line-through;
 }
+
+.offerActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}

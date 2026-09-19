@@ -1,4 +1,6 @@
 import Button from '@/components/ui/Button';
+import offersData from '@/data/offers.json';
+import { getWhatsAppLink } from '@/lib/utils';
 import styles from './Offers.module.css';
 
 export const metadata = {
@@ -7,46 +9,9 @@ export const metadata = {
     'Explore curated aquarium starter kits, filtration bundles, and promotional prices at Aqua Pro Sri Lanka.',
 };
 
-const offers = [
-  {
-    id: 'aquascape-starter',
-    badge: 'SAVE 15%',
-    title: 'Complete Aquascaping Starter Bundle',
-    desc: 'Includes 30L Rimless Low-Iron Glass Tank, Hang-On Back Canister Filter, Full-Spectrum LED Light, and Premium Plant Substrate.',
-    specialPrice: 'LKR 42,500',
-    originalPrice: 'LKR 50,000',
-    link: '/shop/aquascaping',
-  },
-  {
-    id: 'filtration-pack',
-    badge: 'HOT DEAL',
-    title: 'Oase BioMaster Thermo 350 + Media Pack',
-    desc: 'Premium German canister filter with integrated heater, complete with matrix bio-media and pre-filter replacement pads.',
-    specialPrice: 'LKR 89,000',
-    originalPrice: 'LKR 98,000',
-    link: '/shop/filtration',
-  },
-  {
-    id: 'water-care-kit',
-    badge: 'SPECIAL',
-    title: 'Seachem Master Water Care Bundle',
-    desc: 'Seachem Prime 500ml, Stability 500ml, and Pristine 500ml — essential trio for rapid tank cycling and water clarity.',
-    specialPrice: 'LKR 16,800',
-    originalPrice: 'LKR 19,500',
-    link: '/shop/water-care',
-  },
-  {
-    id: 'discus-nutrition',
-    badge: 'LIMITED STOCK',
-    title: 'Hikari Tropical Discus Pro Nutrition Combo',
-    desc: '3 Pack of Hikari Tropical Discus Bio-Gold (80g) high-protein color enhancing granules.',
-    specialPrice: 'LKR 9,200',
-    originalPrice: 'LKR 11,000',
-    link: '/shop/fish-food',
-  },
-];
-
 export default function OffersPage() {
+  const offers = offersData;
+
   return (
     <>
       <section className={styles.offersHeader}>
@@ -70,9 +35,22 @@ export default function OffersPage() {
                   <span className={styles.specialPrice}>{item.specialPrice}</span>
                   <span className={styles.originalPrice}>{item.originalPrice}</span>
                 </div>
-                <Button href={item.link} variant="primary" fullWidth>
-                  Shop Offer
-                </Button>
+                <div className={styles.offerActions}>
+                  <Button href={`/contact?subject=${item.contactSubject}`} variant="primary" fullWidth>
+                    Request This Offer
+                  </Button>
+                  <Button
+                    href={getWhatsAppLink(item.whatsappMessage)}
+                    variant="secondary"
+                    fullWidth
+                    external
+                  >
+                    WhatsApp Us
+                  </Button>
+                  <Button href={`/shop/${item.categorySlug}`} variant="outline" fullWidth>
+                    Browse {item.categorySlug.replace('-', ' ')}
+                  </Button>
+                </div>
               </div>
             </div>
           ))}

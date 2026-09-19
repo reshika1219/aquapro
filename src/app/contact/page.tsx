@@ -1,40 +1,24 @@
-'use client';
-
-import { useState, FormEvent } from 'react';
-import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Button from '@/components/ui/Button';
 import siteConfig from '@/data/site.json';
+import ContactForm from './ContactForm';
 import styles from './Contact.module.css';
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-    }, 800);
-  };
-
   return (
     <>
       <section className={styles.contactHeader}>
         <div className="container">
           <h1 className={styles.title}>Get in Touch</h1>
           <p className={styles.subtitle}>
-            Have questions about custom aquariums, live fish care, or store visits? Our master aquarists are ready to assist.
+            Have questions about custom aquariums, live fish care, or store visits? Our team is ready to assist.
           </p>
         </div>
       </section>
 
       <section className="container">
         <div className={styles.contactGrid}>
-          {/* Information */}
           <div className={styles.infoSection}>
-            {/* Store Location */}
             <div className={styles.infoCard}>
               <div className={styles.cardHeader}>
                 <div className={styles.iconWrapper}>
@@ -46,15 +30,21 @@ export default function ContactPage() {
                 <h3 className={styles.cardTitle}>Showroom & Store</h3>
               </div>
               <div className={styles.cardText}>
-                <p><strong>Aqua Pro Headquarters</strong></p>
-                <p>{siteConfig.address}</p>
-                <p style={{ marginTop: '8px', color: 'var(--gray-400)' }}>
-                  Visit our physical showroom to experience live aquascapes, view exotic livestock, and consult with our specialists.
+                <p><strong>Aqua Pro — {siteConfig.locationShort}</strong></p>
+                <p>
+                  <a href={siteConfig.mapsUrl} target="_blank" rel="noopener noreferrer">
+                    {siteConfig.address}
+                  </a>
                 </p>
+                <p style={{ marginTop: '8px', color: 'var(--gray-400)' }}>
+                  Visit our showroom to see display tanks, live stock, and speak with our specialists in person.
+                </p>
+                <Button href={siteConfig.mapsUrl} variant="outline" size="sm" external className={styles.inlineBtn}>
+                  Open in Google Maps
+                </Button>
               </div>
             </div>
 
-            {/* Direct Lines */}
             <div className={styles.infoCard}>
               <div className={styles.cardHeader}>
                 <div className={styles.iconWrapper}>
@@ -66,12 +56,11 @@ export default function ContactPage() {
               </div>
               <div className={styles.cardText}>
                 <p>Phone: <a href={`tel:+${siteConfig.whatsapp}`}>{siteConfig.phone}</a></p>
-                <p>WhatsApp: <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noopener noreferrer">Instant Chat on WhatsApp</a></p>
+                <p>WhatsApp: <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
                 <p>Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
               </div>
             </div>
 
-            {/* Business Hours */}
             <div className={styles.infoCard}>
               <div className={styles.cardHeader}>
                 <div className={styles.iconWrapper}>
@@ -94,65 +83,23 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Form */}
           <div className={styles.formCard}>
             <h2 className={styles.formTitle}>Send an Inquiry</h2>
             <p className={styles.formDesc}>
               Fill in your details below and our team will respond within 24 business hours.
             </p>
-
-            {submitted ? (
-              <div className={styles.successMessage}>
-                ✓ Thank you! Your message has been sent. Our team will contact you shortly.
-              </div>
-            ) : (
-              <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="name">Full Name *</label>
-                  <input className={styles.input} id="name" type="text" required placeholder="e.g. Ruwan Silva" />
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="email">Email Address *</label>
-                  <input className={styles.input} id="email" type="email" required placeholder="name@example.com" />
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="phone">Phone Number *</label>
-                  <input className={styles.input} id="phone" type="tel" required placeholder="07X XXX XXXX" />
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="subject">Subject</label>
-                  <select className={styles.select} id="subject" defaultValue="custom-aquarium">
-                    <option value="custom-aquarium">Custom Aquarium Inquiry</option>
-                    <option value="maintenance">Maintenance & Service Request</option>
-                    <option value="livestock">Live Fish & Plant Stock Check</option>
-                    <option value="order">Order Status Query</option>
-                    <option value="other">General Question</option>
-                  </select>
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="message">Message *</label>
-                  <textarea className={styles.textarea} id="message" required placeholder="Describe your requirement or question in detail..." />
-                </div>
-
-                <Button type="submit" variant="primary" fullWidth loading={submitting}>
-                  Submit Inquiry
-                </Button>
-              </form>
-            )}
+            <Suspense fallback={<p className={styles.formDesc}>Loading form…</p>}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
       <section className={`container ${styles.mapSection}`}>
         <div className={styles.mapCard}>
           <iframe
             className={styles.mapIframe}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.984186548773!2d79.995!3d6.885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTMnMDYuMCJOIDc5wrA1OSczMC4wIkU!5e0!3m2!1sen!2slk!4v1600000000000!5m2!1sen!2slk"
+            src={siteConfig.mapsEmbedUrl}
             allowFullScreen
             loading="lazy"
             title="Aqua Pro Showroom Location Map"

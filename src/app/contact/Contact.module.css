@@ -180,6 +180,20 @@
   font-size: var(--text-sm);
 }
 
+.errorMessage {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+}
+
+.inlineBtn {
+  margin-top: var(--space-4);
+}
+
 .mapSection {
   padding-bottom: var(--space-16);
 }

@@ -79,6 +79,8 @@ export function searchProducts(query: string): Product[] {
   const q = query.toLowerCase().trim();
   if (!q) return [];
 
+  const terms = q.split(/\s+/).filter(Boolean);
+
   return products.filter(p => {
     const searchable = [
       p.name,
@@ -88,8 +90,24 @@ export function searchProducts(query: string): Product[] {
       ...(p.tags || []),
       ...(p.type === 'fish' ? [p.commonName, p.scientificName] : []),
       ...(p.brand ? [p.brand] : []),
-    ].join(' ').toLowerCase();
+    ]
+      .join(' ')
+      .toLowerCase();
 
-    return searchable.includes(q);
+    return terms.every(term => searchable.includes(term));
   });
+}
+
+/**
+ * Count products per category id
+ */
+export function getProductCountByCategory(categoryId: string): number {
+  return products.filter(p => p.categoryId === categoryId).length;
+}
+
+/**
+ * Get product by slug with category slug for URLs
+ */
+export function getProductPath(product: Product): string {
+  return `/shop/${product.categoryId}/${product.slug}`;
 }

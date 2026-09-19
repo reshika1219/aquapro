@@ -5,7 +5,7 @@ import styles from './Store.module.css';
 export const metadata = {
   title: 'Aqua Pro Showroom & Store Location',
   description:
-    'Experience our physical showroom in Athurugiriya, Sri Lanka. View display aquascapes, rare livestock, and premium equipment.',
+    'Visit the Aqua Pro showroom in Galnewa, Sri Lanka. View display aquascapes, live stock, and premium equipment.',
 };
 
 export default function StorePage() {
@@ -15,7 +15,7 @@ export default function StorePage() {
         <div className="container">
           <h1 className={styles.title}>The Aqua Pro Showroom</h1>
           <p className={styles.subtitle}>
-            Step inside Sri Lanka's premier aquatics experience studio in Athurugiriya.
+            Step inside our aquatics showroom in {siteConfig.locationShort} — {siteConfig.address}
           </p>
         </div>
       </section>
@@ -56,8 +56,11 @@ export default function StorePage() {
               <strong>Hours:</strong> Mon–Sat: 9 AM – 7 PM | Sun & Poya: 10 AM – 5 PM
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Button href="/contact" variant="primary">
-                Get Directions & Map
+              <Button href={siteConfig.mapsUrl} variant="primary" external>
+                Get Directions
+              </Button>
+              <Button href="/contact" variant="outline">
+                Contact & Map
               </Button>
               <Button href={`https://wa.me/${siteConfig.whatsapp}`} variant="secondary" external>
                 Contact Store Manager

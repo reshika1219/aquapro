@@ -1,3 +1,5 @@
+import siteConfig from '@/data/site.json';
+
 export const metadata = {
   title: 'Terms & Conditions | Aqua Pro',
   description: 'Aqua Pro Terms of Service, Store Pickup Policies, and Live Guarantee terms.',
@@ -15,7 +17,7 @@ export default function TermsPage() {
         </p>
         <h3 style={{ color: 'var(--pure-white)', marginTop: '1rem' }}>1. Live Fish & Live Plants Policy</h3>
         <p>
-          For the health and welfare of live aquatic organisms, live fish and shrimp are strictly available via <strong>In-Store Pickup</strong> at our Athurugiriya showroom only. Courier delivery is disabled for live stock.
+          For the health and welfare of live aquatic organisms, live fish and shrimp are strictly available via <strong>In-Store Pickup</strong> at our {siteConfig.locationShort} store ({siteConfig.address}) only. Courier delivery is disabled for live stock.
         </p>
         <h3 style={{ color: 'var(--pure-white)', marginTop: '1rem' }}>2. Payment Options</h3>
         <p>

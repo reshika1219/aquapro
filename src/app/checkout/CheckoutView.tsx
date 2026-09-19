@@ -102,9 +102,8 @@ export default function CheckoutView() {
   };
 
   return (
-    <div className={styles.layout}>
-      {/* Form */}
-      <form onSubmit={handleSubmit} className={styles.formSection}>
+    <form id="checkout-form" onSubmit={handleSubmit} className={styles.layout}>
+      <div className={styles.formSection}>
         <div className={styles.card}>
           <h2>Contact Information</h2>
           <div className={styles.grid2}>
@@ -191,9 +190,8 @@ export default function CheckoutView() {
             <textarea id="notes" name="notes" rows={3} value={formData.notes} onChange={handleInputChange}></textarea>
           </div>
         </div>
-      </form>
+      </div>
 
-      {/* Summary Sidebar */}
       <aside className={styles.summarySidebar}>
         <div className={styles.summaryCard}>
           <h2>Order Summary</h2>
@@ -237,16 +235,17 @@ export default function CheckoutView() {
           </div>
 
           <Button
+            type="submit"
             size="lg"
             fullWidth
-            onClick={() => handleSubmit({ preventDefault: () => {} } as React.FormEvent)}
             disabled={isSubmitting}
+            loading={isSubmitting}
             className={styles.submitBtn}
           >
             {isSubmitting ? 'Processing...' : 'Confirm Order'}
           </Button>
         </div>
       </aside>
-    </div>
+    </form>
   );
 }

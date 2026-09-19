@@ -61,7 +61,7 @@ const servicesList = [
   {
     id: 'water-analysis',
     title: 'Water Chemistry & Lab Diagnostics',
-    desc: 'Unexplained algae blooms or fish distress? Bring a water sample to our Athurugiriya lab or request on-site parameter profiling for pH, KH, GH, Nitrate, Ammonia, and Phosphate.',
+    desc: `Unexplained algae blooms or fish distress? Bring a water sample to our ${siteConfig.locationShort} store or request on-site parameter profiling for pH, KH, GH, Nitrate, Ammonia, and Phosphate.`,
     features: [
       'High-precision digital photometer testing',
       'Algae root cause diagnostics',

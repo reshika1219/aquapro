@@ -1,0 +1,46 @@
+[
+  {
+    "id": "aquascape-starter",
+    "badge": "SAVE 15%",
+    "title": "Complete Aquascaping Starter Bundle",
+    "desc": "Includes 30L Rimless Low-Iron Glass Tank, Hang-On Back Canister Filter, Full-Spectrum LED Light, and Premium Plant Substrate.",
+    "specialPrice": "LKR 42,500",
+    "originalPrice": "LKR 50,000",
+    "categorySlug": "aquascaping",
+    "contactSubject": "offer-aquascape-starter",
+    "whatsappMessage": "Hi Aqua Pro, I'm interested in the Complete Aquascaping Starter Bundle (LKR 42,500)."
+  },
+  {
+    "id": "filtration-pack",
+    "badge": "HOT DEAL",
+    "title": "Oase BioMaster Thermo 350 + Media Pack",
+    "desc": "Premium German canister filter with integrated heater, complete with matrix bio-media and pre-filter replacement pads.",
+    "specialPrice": "LKR 89,000",
+    "originalPrice": "LKR 98,000",
+    "categorySlug": "filtration",
+    "contactSubject": "offer-filtration-pack",
+    "whatsappMessage": "Hi Aqua Pro, I'd like to order the Oase BioMaster Thermo 350 + Media Pack offer."
+  },
+  {
+    "id": "water-care-kit",
+    "badge": "SPECIAL",
+    "title": "Seachem Master Water Care Bundle",
+    "desc": "Seachem Prime 500ml, Stability 500ml, and Pristine 500ml — essential trio for rapid tank cycling and water clarity.",
+    "specialPrice": "LKR 16,800",
+    "originalPrice": "LKR 19,500",
+    "categorySlug": "water-care",
+    "contactSubject": "offer-water-care-kit",
+    "whatsappMessage": "Hi Aqua Pro, I'm interested in the Seachem Master Water Care Bundle."
+  },
+  {
+    "id": "discus-nutrition",
+    "badge": "LIMITED STOCK",
+    "title": "Hikari Tropical Discus Pro Nutrition Combo",
+    "desc": "3 Pack of Hikari Tropical Discus Bio-Gold (80g) high-protein color enhancing granules.",
+    "specialPrice": "LKR 9,200",
+    "originalPrice": "LKR 11,000",
+    "categorySlug": "fish-food",
+    "contactSubject": "offer-discus-nutrition",
+    "whatsappMessage": "Hi Aqua Pro, I'd like the Hikari Discus Pro Nutrition Combo offer."
+  }
+]
