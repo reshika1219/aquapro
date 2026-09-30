@@ -1,23 +1,20 @@
-import styles from './Badge.module.css';
-
 interface BadgeProps {
   variant: 'in-stock' | 'limited' | 'out-of-stock' | 'sale' | 'new';
   children: React.ReactNode;
   showDot?: boolean;
 }
 
-const variantMap: Record<string, string> = {
-  'in-stock': styles.inStock,
-  'limited': styles.limited,
-  'out-of-stock': styles.outOfStock,
-  'sale': styles.sale,
-  'new': styles.new,
+const variantClassMap: Record<string, string> = {
+  'in-stock':    'badge badge--instock',
+  'limited':     'badge badge--limited',
+  'out-of-stock':'badge badge--soldout',
+  'sale':        'badge badge--sale',
+  'new':         'badge badge--new',
 };
 
-export default function Badge({ variant, children, showDot = true }: BadgeProps) {
+export default function Badge({ variant, children }: BadgeProps) {
   return (
-    <span className={`${styles.badge} ${variantMap[variant] || ''}`}>
-      {showDot && <span className={styles.dot} />}
+    <span className={variantClassMap[variant] || 'badge'}>
       {children}
     </span>
   );

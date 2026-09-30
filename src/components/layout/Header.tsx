@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -10,7 +10,6 @@ import { mainNavItems, shopCategories, isNavActive } from '@/lib/nav';
 import SearchDialog from './SearchDialog';
 import styles from './Header.module.css';
 
-// Simple category icons for the mega menu
 const categoryIcons: Record<string, React.ReactNode> = {
   'live-aquatics': (
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -73,6 +72,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileShopOpen, setMobileShopOpen] = useState(false);
+  const [shopOpen, setShopOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const { getItemCount } = useCart();
   const { getCount: getWishlistCount } = useWishlist();
@@ -82,7 +82,7 @@ export default function Header() {
   const shopActive = isNavActive(pathname, '/shop');
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
@@ -99,9 +99,7 @@ export default function Header() {
     document.body.style.overflow = 'hidden';
   }, []);
 
-  useEffect(() => {
-    closeMobile();
-  }, [pathname, closeMobile]);
+  useEffect(() => { closeMobile(); }, [pathname, closeMobile]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -123,15 +121,23 @@ export default function Header() {
         className={`${styles.header} ${scrolled ? styles.scrolled : styles.transparent}`}
         role="banner"
       >
+        <div className={styles.utilityBar}>
+          <div className={styles.utilityInner}>
+            <span>Healthy livestock, carefully packed</span>
+            <span className={styles.utilityDivider} aria-hidden="true" />
+            <span>Islandwide delivery available</span>
+            <Link href="/offers">See current offers</Link>
+          </div>
+        </div>
         <div className={styles.inner}>
           {/* Logo */}
           <Link href="/" className={styles.logo} aria-label="Aqua Pro — Home">
             <Image
               src="/assets/brand/aqua-pro-logo-horizontal.png"
               alt="Aqua Pro"
-              width={160}
-              height={42}
-              style={{ width: 'auto' }}
+              width={150}
+              height={40}
+              style={{ width: 'auto', height: '36px' }}
               className={styles.logoImage}
               priority
             />
@@ -139,15 +145,17 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className={styles.nav} aria-label="Main navigation">
-
-            {/* Shop with CSS hover mega menu */}
-            <div className={`${styles.shopDropdown} ${shopActive ? styles.shopActive : ''}`}>
+            <Link href="/" className={navLinkClass('/')}>Home</Link>
+            {/* Shop dropdown */}
+            <div className={`${styles.shopDropdown} ${shopActive ? styles.shopActive : ''} ${shopOpen ? styles.open : ''}`}>
               <button
                 type="button"
                 className={`${styles.navDropdownTrigger} ${shopActive ? styles.navLinkActive : ''}`}
                 aria-haspopup="true"
                 aria-label="Shop categories"
+                aria-expanded={shopOpen}
                 id="header-shop-menu"
+                onClick={() => setShopOpen(open => !open)}
               >
                 Shop
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden>
@@ -155,7 +163,6 @@ export default function Header() {
                 </svg>
               </button>
 
-              {/* Mega menu — shown via CSS :hover on .shopDropdown */}
               <div className={styles.shopPanel} role="menu">
                 <div className={styles.shopPanelHeader}>
                   <span className={styles.shopPanelTitle}>Browse Categories</span>
@@ -181,6 +188,12 @@ export default function Header() {
               </div>
             </div>
 
+            {shopCategories.slice(0, 4).map(item => (
+              <Link key={item.id} href={`/shop/${item.slug}`} className={navLinkClass(`/shop/${item.slug}`)}>
+                {item.name}
+              </Link>
+            ))}
+
             {mainNavItems.map(item => (
               <Link key={item.href} href={item.href} className={navLinkClass(item.href)}>
                 {item.label}
@@ -197,28 +210,28 @@ export default function Header() {
               id="header-search-btn"
               onClick={() => setSearchOpen(true)}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
               </svg>
             </button>
 
-            <Link href="/wishlist" className={styles.actionBtn} aria-label={`Wishlist${wishlistCount > 0 ? ` (${wishlistCount} items)` : ''}`} id="header-wishlist-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <Link href="/wishlist" className={styles.actionBtn} aria-label={`Wishlist${wishlistCount > 0 ? ` (${wishlistCount})` : ''}`} id="header-wishlist-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
               </svg>
               {wishlistCount > 0 && <span className={styles.badge}>{wishlistCount}</span>}
             </Link>
 
-            <Link href="/cart" className={styles.actionBtn} aria-label={`Cart${cartCount > 0 ? ` (${cartCount} items)` : ''}`} id="header-cart-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <Link href="/cart" className={styles.actionBtn} aria-label={`Cart${cartCount > 0 ? ` (${cartCount})` : ''}`} id="header-cart-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
               </svg>
               {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
             </Link>
 
-            {/* Mobile hamburger */}
+            {/* Hamburger */}
             <button className={styles.menuBtn} onClick={openMobile} aria-label="Open menu" id="header-menu-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" width={22} height={22}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
             </button>
@@ -251,7 +264,7 @@ export default function Header() {
             style={{ height: 30, width: 'auto', objectFit: 'contain' }}
           />
           <button className={styles.mobileMenuClose} onClick={closeMobile} aria-label="Close menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>
           </button>
@@ -262,7 +275,6 @@ export default function Header() {
             Home
           </Link>
 
-          {/* Shop accordion */}
           <button
             type="button"
             className={`${styles.mobileNavLink} ${styles.mobileExpand} ${mobileShopOpen ? styles.mobileExpandOpen : ''} ${shopActive ? styles.mobileNavLinkActive : ''}`}
@@ -270,7 +282,7 @@ export default function Header() {
             aria-expanded={mobileShopOpen}
           >
             Shop
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
           </button>
@@ -285,6 +297,17 @@ export default function Header() {
               ))}
             </div>
           )}
+
+          {shopCategories.slice(0, 4).map(item => (
+            <Link
+              key={item.id}
+              href={`/shop/${item.slug}`}
+              className={`${styles.mobileNavLink} ${isNavActive(pathname, `/shop/${item.slug}`) ? styles.mobileNavLinkActive : ''}`}
+              onClick={closeMobile}
+            >
+              {item.name}
+            </Link>
+          ))}
 
           {mainNavItems.map(item => (
             <Link
@@ -301,7 +324,7 @@ export default function Header() {
         <div className={styles.mobileContact}>
           <p>Get in touch</p>
           <a href="tel:+94715959260">+94 71 595 9260</a>
-          <a href="https://wa.me/94715959260" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', fontSize: 'var(--text-sm)' }}>
+          <a href="https://wa.me/94715959260" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366' }}>
             WhatsApp us →
           </a>
         </div>

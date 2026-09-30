@@ -1,35 +1,39 @@
+/* ============================================================
+   AQUA PRO — Search Dialog
+   ============================================================ */
+
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: calc(var(--z-modal) + 1);
-  background: rgba(0, 0, 0, 0.65);
+  z-index: calc(var(--z-modal, 300) + 1);
+  background: rgba(11, 16, 15, 0.86);
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: calc(var(--header-height) + var(--space-6)) var(--space-4) var(--space-4);
+  padding: calc(var(--header-h, 76px) + 1.5rem) var(--sp-4) var(--sp-4);
 }
 
 .dialog {
-  width: min(560px, 100%);
-  background: var(--navy);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  width: min(580px, 100%);
+  background: var(--ink-mid);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-xl);
   overflow: hidden;
 }
 
 .inputRow {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .inputRow svg {
-  width: 22px;
-  height: 22px;
-  color: var(--gray-500);
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
   flex-shrink: 0;
 }
 
@@ -37,91 +41,90 @@
   flex: 1;
   background: transparent;
   border: none;
-  color: var(--pure-white);
+  color: var(--text-primary);
   font-size: var(--text-base);
+  font-family: var(--font-body);
   outline: none;
 }
 
 .inputRow input::placeholder {
-  color: var(--gray-500);
+  color: var(--text-faint);
 }
 
 .closeBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  color: var(--gray-400);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color var(--t-fast), background var(--t-fast);
 }
-
 .closeBtn:hover {
-  color: var(--pure-white);
-  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.06);
 }
-
-.closeBtn svg {
-  width: 20px;
-  height: 20px;
-}
+.closeBtn svg { width: 18px; height: 18px; }
 
 .results {
-  padding: var(--space-2);
-  max-height: 360px;
+  padding: var(--sp-2);
+  max-height: 380px;
   overflow-y: auto;
-}
-
-.results ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .resultLink {
   display: flex;
   justify-content: space-between;
-  gap: var(--space-4);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-md);
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-lg);
   text-decoration: none;
   color: inherit;
-  transition: background var(--transition-fast);
+  transition: background var(--t-fast);
 }
-
-.resultLink:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
+.resultLink:hover { background: rgba(255,255,255,0.04); }
 
 .resultName {
   font-size: var(--text-sm);
-  color: var(--gray-200);
+  font-weight: 500;
+  color: var(--text-secondary);
 }
+.resultLink:hover .resultName { color: var(--text-primary); }
 
 .resultPrice {
   font-size: var(--text-sm);
-  color: var(--aqua);
+  font-weight: 700;
+  color: var(--teal-400);
   white-space: nowrap;
 }
 
 .empty {
-  padding: var(--space-4);
+  padding: var(--sp-6) var(--sp-4);
   font-size: var(--text-sm);
-  color: var(--gray-500);
-  margin: 0;
+  color: var(--text-muted);
+  text-align: center;
 }
 
 .viewAll {
-  width: calc(100% - var(--space-4));
-  margin: var(--space-2);
-  padding: var(--space-3);
+  display: block;
+  width: calc(100% - var(--sp-4));
+  margin: var(--sp-2);
+  padding: var(--sp-3);
   font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--aqua);
-  border-radius: var(--radius-md);
-  transition: background var(--transition-fast);
+  font-weight: 700;
+  color: var(--teal-400);
+  border-radius: var(--r-lg);
+  text-align: center;
+  text-decoration: none;
+  transition: background var(--t-fast), color var(--t-fast);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-ui);
 }
-
 .viewAll:hover {
-  background: rgba(0, 180, 216, 0.08);
+  background: rgba(0,196,238,0.08);
+  color: var(--teal-300);
 }

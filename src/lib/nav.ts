@@ -9,6 +9,8 @@ export const mainNavItems = [
   { label: 'Offers', href: '/offers' },
   { label: 'Services', href: '/services' },
   { label: 'Our Store', href: '/store' },
+  { label: 'About', href: '/about-us' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ] as const;
 

@@ -1,102 +1,109 @@
+/* Button component — now delegates to global .btn classes */
+/* Keep this file for any component-specific overrides if needed */
+
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  font-family: var(--font-sans);
-  font-weight: 500;
-  border: none;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 11px 1.5rem;
+  font-family: var(--font-ui, 'Inter', sans-serif);
+  font-size: var(--text-sm, 0.8125rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border-radius: var(--r-sm, 6px);
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
   white-space: nowrap;
   text-decoration: none;
-  line-height: 1;
+  border: none;
+  position: relative;
+  overflow: hidden;
 }
 
-.button:focus-visible {
-  outline: 2px solid var(--aqua);
-  outline-offset: 2px;
-}
-
-/* Sizes */
-.sm {
-  font-size: var(--text-sm);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
-  height: 36px;
-}
-
-.md {
-  font-size: var(--text-sm);
-  padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-md);
-  height: 44px;
-}
-
-.lg {
-  font-size: var(--text-base);
-  padding: var(--space-4) var(--space-8);
-  border-radius: var(--radius-lg);
-  height: 52px;
-}
-
-/* Variants */
 .primary {
-  background: var(--aqua);
-  color: var(--deep-navy);
-  font-weight: 600;
+  background: var(--teal-400, #66c5b7);
+  color: var(--ink-deep, #030913);
+  box-shadow: var(--shadow-sm);
 }
-
 .primary:hover {
-  background: var(--aqua-hover);
+  background: var(--teal-300, #9be0d2);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
-}
-
-.primary:active {
-  transform: translateY(0);
+  color: var(--ink-deep, #030913);
 }
 
 .secondary {
-  background: transparent;
-  color: var(--pure-white);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(102,197,183,0.12);
+  border: 1px solid rgba(102,197,183,0.3);
+  color: var(--teal-400, #00c4ee);
 }
-
 .secondary:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(102,197,183,0.2);
+  border-color: rgba(102,197,183,0.5);
+  color: var(--teal-300, #40d4f5);
+  transform: translateY(-1px);
 }
 
 .ghost {
   background: transparent;
-  color: var(--gray-300);
-  padding-inline: var(--space-3);
+  color: var(--text-primary, #f0f6fb);
+  border: 1px solid rgba(244,241,232,0.24);
 }
-
 .ghost:hover {
-  color: var(--pure-white);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(244,241,232,0.08);
+  border-color: rgba(244,241,232,0.4);
+  color: var(--text-primary, #f0f6fb);
+  transform: translateY(-1px);
 }
 
 .outline {
   background: transparent;
-  color: var(--aqua);
-  border: 1px solid var(--aqua);
+  color: var(--teal-400, #00c4ee);
+  border: 1px solid rgba(102,197,183,0.55);
 }
-
 .outline:hover {
-  background: rgba(0, 180, 216, 0.1);
+  background: rgba(102,197,183,0.1);
+  border-color: var(--teal-400, #00c4ee);
+  color: var(--teal-300, #40d4f5);
+  transform: translateY(-1px);
 }
 
-/* Full width */
+.sm {
+  min-height: 44px;
+  padding: 9px 1.125rem;
+  font-size: var(--text-xs, 0.6875rem);
+}
+
+.md {
+  padding: 11px 1.5rem;
+  font-size: var(--text-sm, 0.8125rem);
+}
+
+.lg {
+  min-height: 52px;
+  padding: 14px 2rem;
+  font-size: var(--text-base, 1rem);
+}
+
 .fullWidth {
   width: 100%;
 }
 
-/* Disabled */
+.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
 .button:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
-  transform: none;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--teal-300, #9be0d2);
+  outline-offset: 3px;
 }
