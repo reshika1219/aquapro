@@ -188,12 +188,6 @@ export default function Header() {
               </div>
             </div>
 
-            {shopCategories.slice(0, 4).map(item => (
-              <Link key={item.id} href={`/shop/${item.slug}`} className={navLinkClass(`/shop/${item.slug}`)}>
-                {item.name}
-              </Link>
-            ))}
-
             {mainNavItems.map(item => (
               <Link key={item.href} href={item.href} className={navLinkClass(item.href)}>
                 {item.label}
@@ -297,17 +291,6 @@ export default function Header() {
               ))}
             </div>
           )}
-
-          {shopCategories.slice(0, 4).map(item => (
-            <Link
-              key={item.id}
-              href={`/shop/${item.slug}`}
-              className={`${styles.mobileNavLink} ${isNavActive(pathname, `/shop/${item.slug}`) ? styles.mobileNavLinkActive : ''}`}
-              onClick={closeMobile}
-            >
-              {item.name}
-            </Link>
-          ))}
 
           {mainNavItems.map(item => (
             <Link
