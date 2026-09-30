@@ -10,7 +10,7 @@
   align-items: center;
   gap: var(--space-6);
   background: var(--navy);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-sm);
   border: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
@@ -70,7 +70,8 @@
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-md);
+  min-height: 44px;
+  border-radius: var(--radius-sm);
   padding: var(--space-3);
   color: var(--pure-white);
   font-family: inherit;
@@ -86,7 +87,7 @@
 .pickupNotice {
   padding: var(--space-3);
   background: var(--warning-bg);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   color: var(--warning);
   font-size: var(--text-sm);
   margin-bottom: var(--space-4);
@@ -147,7 +148,7 @@
 
 .summaryCard {
   background: var(--navy);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-sm);
   padding: var(--space-6);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -244,6 +245,14 @@
 
 .submitBtn {
   margin-top: var(--space-2);
+}
+
+.errorMessage {
+  padding: var(--space-4);
+  color: #ffd0d8;
+  background: rgba(239, 76, 106, 0.12);
+  border: 1px solid rgba(239, 76, 106, 0.35);
+  border-radius: var(--radius-sm);
 }
 
 @media (max-width: 1024px) {

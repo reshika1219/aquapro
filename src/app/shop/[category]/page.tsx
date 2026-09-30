@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getProductsByCategory, getCategoryBySlug, getAllCategories } from '@/lib/products';
+import { getProductsByCategory, getCategoryBySlug } from '@/lib/products';
 import ShopCatalog from '../ShopCatalog';
 
 interface CategoryPageProps {
@@ -31,11 +31,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const products = getProductsByCategory(category.id);
-  const categories = getAllCategories();
-
   return (
     <Suspense fallback={<div className="container section">Loading shop…</div>}>
-      <ShopCatalog products={products} categories={categories} category={category} />
+      <ShopCatalog products={products} category={category} />
     </Suspense>
   );
 }

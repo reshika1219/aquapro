@@ -8,7 +8,7 @@
   padding: var(--space-20) var(--space-4);
   text-align: center;
   background: var(--navy);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-sm);
   border: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
@@ -87,7 +87,7 @@
   width: 80px;
   height: 80px;
   background: var(--ocean);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -155,12 +155,12 @@
   border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
-  height: 32px;
+  height: 44px;
 }
 
 .qtyBtn {
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,7 +225,7 @@
 .summary {
   background: var(--navy);
   padding: var(--space-6);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.06);
   position: sticky;
   top: calc(var(--header-height) + var(--space-8));

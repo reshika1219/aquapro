@@ -13,7 +13,6 @@ type SortOption = 'featured' | 'name-asc' | 'price-asc' | 'price-desc';
 
 interface ShopCatalogProps {
   products: Product[];
-  categories: Category[];
   category?: Category;
 }
 
@@ -38,7 +37,7 @@ function sortProducts(list: Product[], sort: SortOption): Product[] {
   }
 }
 
-export default function ShopCatalog({ products, categories, category }: ShopCatalogProps) {
+export default function ShopCatalog({ products, category }: ShopCatalogProps) {
   const searchParams = useSearchParams();
   const query = (searchParams.get('q') ?? '').trim();
   const sort = (searchParams.get('sort') as SortOption) ?? 'featured';
@@ -94,45 +93,7 @@ export default function ShopCatalog({ products, categories, category }: ShopCata
         </p>
       </div>
 
-      <div className={styles.mobileCategories}>
-        <Link href="/shop" className={!category ? styles.chipActive : styles.chip}>
-          All
-        </Link>
-        {categories.map(cat => (
-          <Link
-            key={cat.id}
-            href={`/shop/${cat.slug}`}
-            className={category?.id === cat.id ? styles.chipActive : styles.chip}
-          >
-            {cat.name}
-          </Link>
-        ))}
-      </div>
-
       <div className={styles.layout}>
-        <aside className={styles.sidebar}>
-          <div className={styles.filterGroup}>
-            <h3>Categories</h3>
-            <ul className={styles.categoryList}>
-              <li>
-                <Link href="/shop" className={!category ? styles.categoryActive : undefined}>
-                  All Products
-                </Link>
-              </li>
-              {categories.map(cat => (
-                <li key={cat.id}>
-                  <Link
-                    href={`/shop/${cat.slug}`}
-                    className={category?.id === cat.id ? styles.categoryActive : undefined}
-                  >
-                    {cat.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-
         <main className={styles.main}>
           <div className={styles.toolbar}>
             <p className={styles.resultCount}>

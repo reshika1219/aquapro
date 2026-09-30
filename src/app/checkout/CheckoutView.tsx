@@ -28,6 +28,7 @@ export default function CheckoutView() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -72,6 +73,7 @@ export default function CheckoutView() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
     try {
       const response = await fetch('/api/orders', {
@@ -96,7 +98,7 @@ export default function CheckoutView() {
       router.push(`/checkout/success?orderId=${orderId}`);
     } catch (error) {
       console.error('Checkout error:', error);
-      alert('There was a problem submitting your order. Please try again.');
+      setSubmitError('There was a problem submitting your order. Please check your details and try again.');
       setIsSubmitting(false);
     }
   };
@@ -104,6 +106,11 @@ export default function CheckoutView() {
   return (
     <form id="checkout-form" onSubmit={handleSubmit} className={styles.layout}>
       <div className={styles.formSection}>
+        {submitError && (
+          <div className={styles.errorMessage} role="alert">
+            {submitError}
+          </div>
+        )}
         <div className={styles.card}>
           <h2>Contact Information</h2>
           <div className={styles.grid2}>
