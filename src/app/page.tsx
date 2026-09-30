@@ -4,6 +4,7 @@ import ProductSection from '@/components/sections/ProductSection';
 import ServicesPreview from '@/components/sections/ServicesPreview';
 import WhyAquaPro from '@/components/sections/WhyAquaPro';
 import ContactCTA from '@/components/sections/ContactCTA';
+import StorePromises from '@/components/sections/StorePromises';
 import { getFeaturedProducts, getNewArrivals } from '@/lib/products';
 
 export default function HomePage() {
@@ -14,6 +15,8 @@ export default function HomePage() {
     <>
       {/* 01 — Hero */}
       <Hero />
+
+      <StorePromises />
 
       {/* 02 — Shop by Category */}
       <CategoryGrid />

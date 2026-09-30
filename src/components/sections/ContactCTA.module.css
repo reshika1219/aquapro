@@ -1,175 +1,193 @@
-/* ContactCTA — Full-bleed immersive banner */
+/* ============================================================
+   AQUA PRO — Contact CTA Section
+   ============================================================ */
 
 .cta {
-  padding-block: var(--space-20);
   position: relative;
   overflow: hidden;
-}
-
-/* Mesh gradient background */
-.cta::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0, 100, 160, 0.25) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 50% at 10% 30%, rgba(0, 180, 216, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse 40% 50% at 90% 70%, rgba(72, 202, 228, 0.08) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-/* Animated dot grid */
-.cta::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-  pointer-events: none;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  background: var(--ink-deep);
 }
 
 .inner {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
   align-items: center;
-  text-align: center;
 }
 
-/* Eyebrow label */
+/* ---- Left: Content ---- */
+.content {}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--sp-2);
   font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: var(--tracking-wider);
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--aqua);
-  background: rgba(0, 180, 216, 0.1);
-  border: 1px solid rgba(0, 180, 216, 0.2);
-  border-radius: var(--radius-full);
-  padding: var(--space-2) var(--space-4);
-  margin-bottom: var(--space-6);
+  color: var(--teal-400);
+  margin-bottom: var(--sp-5);
+}
+.eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--teal-400);
+  border-radius: 2px;
 }
 
-.inner h2 {
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 800;
-  color: var(--pure-white);
-  letter-spacing: -0.03em;
+.title {
+  font-family: var(--font-ui);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  color: #fff;
   line-height: 1.1;
-  margin-bottom: var(--space-5);
-  max-width: 640px;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--sp-5);
 }
 
-.inner p {
-  font-size: var(--text-lg);
-  color: var(--gray-400);
-  max-width: 520px;
-  margin-bottom: var(--space-10);
-  line-height: 1.65;
+.titleAccent {
+  display: block;
+  color: var(--teal-300);
 }
 
-/* Phone number */
+.desc {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 44ch;
+  margin-bottom: var(--sp-8);
+}
+
 .phone {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--pure-white);
+  gap: var(--sp-3);
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  color: #fff;
   text-decoration: none;
-  margin-bottom: var(--space-8);
-  transition: color var(--transition-fast);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--sp-8);
+  transition: color var(--t-fast);
 }
-
-.phone:hover {
-  color: var(--aqua);
-}
-
+.phone:hover { color: var(--teal-300); }
 .phone svg {
-  width: 20px;
-  height: 20px;
-  color: var(--aqua);
+  width: 24px;
+  height: 24px;
+  color: var(--teal-400);
+  flex-shrink: 0;
 }
 
-/* Buttons */
 .buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-4);
   flex-wrap: wrap;
+  gap: var(--sp-3);
 }
 
 .whatsapp {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: 14px var(--space-8);
+  gap: var(--sp-2);
+  padding: 14px var(--sp-7);
   background: #25D366;
   color: #fff;
+  font-family: var(--font-ui);
   font-size: var(--text-sm);
-  font-weight: 700;
-  border-radius: var(--radius-full);
+  font-weight: 800;
+  border-radius: var(--r-sm);
   text-decoration: none;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
 }
-
 .whatsapp:hover {
+  background: #22c35d;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
-  filter: brightness(1.07);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.45);
   color: #fff;
 }
-
-.whatsapp svg {
-  width: 20px;
-  height: 20px;
-}
+.whatsapp svg { width: 18px; height: 18px; flex-shrink: 0; }
 
 .contactLink {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 14px var(--space-8);
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: var(--pure-white);
+  gap: var(--sp-2);
+  padding: 14px var(--sp-7);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
   font-size: var(--text-sm);
-  font-weight: 600;
-  border-radius: var(--radius-full);
+  font-weight: 700;
+  border-radius: var(--r-sm);
   text-decoration: none;
-  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-  backdrop-filter: blur(8px);
+  transition: background var(--t-fast), transform var(--t-fast);
 }
-
 .contactLink:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255,255,255,0.1);
   transform: translateY(-2px);
-  color: var(--pure-white);
+  color: var(--text-primary);
+}
+.contactLink svg { width: 14px; height: 14px; }
+
+/* ---- Right: Info cards ---- */
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .buttons {
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 320px;
-    margin-inline: auto;
-  }
+.infoCard {
+  display: flex;
+  gap: var(--sp-5);
+  align-items: flex-start;
+  padding: var(--sp-6);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--r-sm);
+  transition: border-color var(--t-base);
+}
+.infoCard:hover { border-color: rgba(0,196,238,0.15); }
 
-  .whatsapp,
-  .contactLink {
-    justify-content: center;
-  }
+.infoCardIcon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-lg);
+  background: rgba(0,196,238,0.1);
+  border: 1px solid rgba(0,196,238,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal-400);
+}
+.infoCardIcon svg { width: 20px; height: 20px; }
 
-  .phone {
-    font-size: var(--text-lg);
+.infoCardBody {}
+.infoCardTitle {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  margin-bottom: var(--sp-1);
+}
+.infoCardText {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 600px) {
+  .buttons { flex-direction: column; }
+  .whatsapp, .contactLink { justify-content: center; }
+  .title { font-size: 2rem; }
 }

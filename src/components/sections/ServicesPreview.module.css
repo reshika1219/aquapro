@@ -1,249 +1,167 @@
-/* ServicesPreview — Numbered horizontal cards */
+/* ============================================================
+   AQUA PRO — Services Preview
+   ============================================================ */
 
 .section {
-  padding-block: var(--space-20);
-  background: linear-gradient(180deg, transparent 0%, rgba(15, 34, 64, 0.3) 50%, transparent 100%);
+  background: var(--ink-mid);
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle background decoration */
-.section::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(0, 180, 216, 0.03) 0%, transparent 65%);
-  pointer-events: none;
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: var(--sp-8);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
+
+.headerLeft { min-width: 0; }
 
 .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+  margin-bottom: var(--sp-12);
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; max-width: 560px; }
+  .header { grid-template-columns: 1fr; }
+}
+
+/* ---- Service card ---- */
+.card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-}
-
-/* === Service Card — Horizontal layout === */
-.card {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  align-items: center;
-  gap: var(--space-8);
-  padding: var(--space-8) var(--space-10);
-  background: rgba(15, 34, 64, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-2xl);
+  padding: var(--sp-8);
+  background: var(--ink-soft);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--r-sm);
   text-decoration: none;
-  position: relative;
   overflow: hidden;
-  transition:
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-  backdrop-filter: blur(8px);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(0, 180, 216, 0.04) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: border-color var(--t-base), transform var(--t-base), box-shadow var(--t-base);
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateX(8px);
-  background: rgba(15, 34, 64, 0.75);
-  border-color: rgba(0, 180, 216, 0.2);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 180, 216, 0.05);
+  border-color: rgba(0,196,238,0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,196,238,0.08);
 }
 
-.card:hover::before {
-  opacity: 1;
-}
-
-/* === Number === */
-.number {
-  font-size: 3.5rem;
+/* Background number */
+.cardNumber {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-5);
+  font-family: var(--font-ui);
+  font-size: 5rem;
   font-weight: 900;
-  font-variant-numeric: tabular-nums;
-  color: rgba(255, 255, 255, 0.06);
-  letter-spacing: -0.04em;
+  color: rgba(255,255,255,0.03);
   line-height: 1;
-  font-family: var(--font-sans);
-  transition: color 0.3s ease;
+  pointer-events: none;
   user-select: none;
-  text-align: center;
+  letter-spacing: -0.05em;
+  transition: color var(--t-slow);
 }
+.card:hover .cardNumber { color: rgba(0,196,238,0.05); }
 
-.card:hover .number {
-  color: rgba(0, 180, 216, 0.15);
-}
-
-/* === Icon + text group === */
-.body {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-5);
-}
-
+/* Icon */
 .iconWrap {
   width: 52px;
   height: 52px;
-  border-radius: var(--radius-lg);
-  background: rgba(0, 180, 216, 0.1);
-  border: 1px solid rgba(0, 180, 216, 0.15);
-  color: var(--aqua);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(0,196,238,0.1);
+  border: 1px solid rgba(0,196,238,0.15);
+  border-radius: var(--r-lg);
+  color: var(--teal-400);
+  margin-bottom: var(--sp-6);
   flex-shrink: 0;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  transition: background var(--t-base), border-color var(--t-base);
 }
-
-.iconWrap svg {
-  width: 24px;
-  height: 24px;
-}
-
+.iconWrap svg { width: 24px; height: 24px; }
 .card:hover .iconWrap {
-  background: rgba(0, 180, 216, 0.18);
-  border-color: rgba(0, 180, 216, 0.35);
-  transform: scale(1.05);
+  background: rgba(0,196,238,0.18);
+  border-color: rgba(0,196,238,0.35);
 }
 
-.text {
+/* Text */
+.cardTitle {
+  font-family: var(--font-ui);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-3);
+}
+
+.cardDesc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.75;
   flex: 1;
+  margin-bottom: var(--sp-6);
 }
 
-.text h3 {
-  font-size: var(--text-lg);
-  font-weight: 700;
-  color: var(--pure-white);
-  margin-bottom: var(--space-2);
-  line-height: 1.3;
-}
-
-.text p {
-  font-size: var(--text-sm);
-  color: var(--gray-400);
-  line-height: 1.65;
-  margin: 0;
-}
-
-/* === CTA (right side) === */
-.cta {
-  display: flex;
+/* CTA link */
+.cardCta {
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--sp-2);
+  font-family: var(--font-ui);
   font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--gray-500);
-  white-space: nowrap;
-  transition: color 0.25s ease, gap 0.25s ease;
+  font-weight: 700;
+  color: var(--teal-400);
+  margin-top: auto;
+  transition: gap var(--t-fast), color var(--t-fast);
 }
+.cardCta svg { width: 14px; height: 14px; flex-shrink: 0; }
+.card:hover .cardCta { gap: var(--sp-3); color: var(--teal-300); }
 
-.cta svg {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.25s ease;
-}
-
-.card:hover .cta {
-  color: var(--aqua);
-}
-
-.card:hover .cta svg {
-  transform: translateX(3px);
-}
-
-/* === Bottom CTA banner === */
+/* ---- Bottom CTA Banner ---- */
 .ctaBanner {
-  margin-top: var(--space-10);
-  padding: var(--space-8) var(--space-10);
-  background: linear-gradient(135deg, rgba(0, 180, 216, 0.08) 0%, rgba(72, 202, 228, 0.04) 100%);
-  border: 1px solid rgba(0, 180, 216, 0.15);
-  border-radius: var(--radius-2xl);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-8);
+  gap: var(--sp-6);
+  padding: var(--sp-8) var(--sp-10);
+  background: rgba(0,196,238,0.06);
+  border: 1px solid rgba(0,196,238,0.12);
+  border-radius: var(--r-xl);
+  flex-wrap: wrap;
 }
 
 .ctaBannerText h3 {
   font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--pure-white);
-  margin-bottom: var(--space-2);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-1);
+  letter-spacing: -0.02em;
 }
-
 .ctaBannerText p {
   font-size: var(--text-sm);
-  color: var(--gray-400);
-  margin: 0;
+  color: var(--text-secondary);
 }
 
 .ctaBannerActions {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--sp-3);
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .card {
-    grid-template-columns: 50px 1fr;
-    grid-template-rows: auto auto;
-    gap: var(--space-4);
-    padding: var(--space-6) var(--space-6);
-  }
-
-  .cta {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .number {
-    font-size: 2.5rem;
-  }
-
-  .body {
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-
-  .card:hover {
-    transform: translateY(-4px);
-  }
-
+@media (max-width: 640px) {
   .ctaBanner {
+    padding: var(--sp-6);
     flex-direction: column;
-    text-align: center;
-    padding: var(--space-6);
-    gap: var(--space-5);
+    align-items: flex-start;
   }
-
-  .ctaBannerActions {
-    flex-direction: column;
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-  .number {
-    display: none;
-  }
-  .cta {
-    grid-column: 1;
-  }
+  .ctaBannerActions { width: 100%; justify-content: stretch; }
+  .ctaBannerActions a { flex: 1; }
 }
