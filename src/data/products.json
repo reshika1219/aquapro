@@ -9,9 +9,21 @@
     "price": 1500,
     "description": "A stunning Halfmoon Betta with deep royal blue coloration and a full 180-degree tail spread. One of our most popular ornamental fish.",
     "shortDescription": "Halfmoon variety with vivid blue coloration.",
-    "images": [],
+    "images": [
+      {
+        "src": "/assets/images/products/fish.jpg",
+        "alt": "Halfmoon Betta — Royal Blue",
+        "width": 800,
+        "height": 800
+      }
+    ],
     "availability": "in-stock",
-    "tags": ["betta", "halfmoon", "blue", "freshwater"],
+    "tags": [
+      "betta",
+      "halfmoon",
+      "blue",
+      "freshwater"
+    ],
     "featured": true,
     "newArrival": true,
     "commonName": "Halfmoon Betta",
@@ -41,9 +53,21 @@
     "price": 150,
     "description": "The classic community fish. Neon Tetras feature a brilliant iridescent blue-red stripe and thrive in groups of 6 or more.",
     "shortDescription": "Classic community schooling fish.",
-    "images": [],
+    "images": [
+      {
+        "src": "/assets/images/products/fish.jpg",
+        "alt": "Neon Tetra",
+        "width": 800,
+        "height": 800
+      }
+    ],
     "availability": "in-stock",
-    "tags": ["tetra", "neon", "community", "freshwater"],
+    "tags": [
+      "tetra",
+      "neon",
+      "community",
+      "freshwater"
+    ],
     "featured": true,
     "newArrival": false,
     "commonName": "Neon Tetra",
@@ -73,9 +97,21 @@
     "price": 2500,
     "description": "A bold and intelligent cichlid known for its striking tiger-pattern markings. Oscars are highly interactive fish that develop strong personalities.",
     "shortDescription": "Large, interactive cichlid with tiger markings.",
-    "images": [],
+    "images": [
+      {
+        "src": "/assets/images/products/fish.jpg",
+        "alt": "Tiger Oscar",
+        "width": 800,
+        "height": 800
+      }
+    ],
     "availability": "limited",
-    "tags": ["oscar", "cichlid", "tiger", "freshwater"],
+    "tags": [
+      "oscar",
+      "cichlid",
+      "tiger",
+      "freshwater"
+    ],
     "featured": false,
     "newArrival": true,
     "commonName": "Tiger Oscar",
@@ -106,10 +142,22 @@
     "salePrice": 15900,
     "description": "Professional-grade external canister filter suitable for aquariums up to 400 litres. Features multi-stage filtration with mechanical, biological, and chemical media trays. Quiet operation with self-priming pump.",
     "shortDescription": "External canister filter for tanks up to 400L.",
-    "images": [],
+    "images": [
+      {
+        "src": "/assets/images/products/equipment.jpg",
+        "alt": "AquaClear Pro Canister Filter 1000",
+        "width": 800,
+        "height": 800
+      }
+    ],
     "availability": "in-stock",
     "brand": "AquaClear",
-    "tags": ["filter", "canister", "external", "professional"],
+    "tags": [
+      "filter",
+      "canister",
+      "external",
+      "professional"
+    ],
     "featured": true,
     "newArrival": false,
     "specifications": {
@@ -122,7 +170,17 @@
       "Filter Volume": "6.5 L"
     },
     "warranty": "2 years",
-    "includes": ["Canister body", "Pump head", "Intake & outlet pipes", "Hose", "Spray bar", "Filter media basket set", "Biological media", "Mechanical sponge", "Activated carbon"],
+    "includes": [
+      "Canister body",
+      "Pump head",
+      "Intake & outlet pipes",
+      "Hose",
+      "Spray bar",
+      "Filter media basket set",
+      "Biological media",
+      "Mechanical sponge",
+      "Activated carbon"
+    ],
     "compatibility": "Suitable for freshwater and marine aquariums.",
     "createdAt": "2026-07-15",
     "updatedAt": "2026-09-01"
@@ -137,10 +195,22 @@
     "price": 12500,
     "description": "Full-spectrum LED light designed for planted aquariums. Provides optimal PAR values for healthy plant growth. Features sunrise/sunset dimming and adjustable colour temperature.",
     "shortDescription": "Full-spectrum planted tank LED, 90cm.",
-    "images": [],
+    "images": [
+      {
+        "src": "/assets/images/products/equipment.jpg",
+        "alt": "PlantGrow LED Light 90cm",
+        "width": 800,
+        "height": 800
+      }
+    ],
     "availability": "in-stock",
     "brand": "PlantGrow",
-    "tags": ["lighting", "led", "planted", "full-spectrum"],
+    "tags": [
+      "lighting",
+      "led",
+      "planted",
+      "full-spectrum"
+    ],
     "featured": true,
     "newArrival": true,
     "specifications": {
@@ -153,7 +223,12 @@
       "Lifespan": "50,000 hours"
     },
     "warranty": "1 year",
-    "includes": ["LED unit", "Mounting brackets", "Power adapter", "Controller"],
+    "includes": [
+      "LED unit",
+      "Mounting brackets",
+      "Power adapter",
+      "Controller"
+    ],
     "createdAt": "2026-08-01",
     "updatedAt": "2026-09-05"
   },
@@ -167,9 +242,21 @@
     "price": 4500,
     "description": "Natural Dragon Stone (Ohko Stone) prized for its distinctive ridged texture and warm earth tones. Perfect for Iwagumi and nature-style aquascapes. Each pack contains assorted pieces.",
     "shortDescription": "Natural Ohko Stone for aquascaping, 5kg.",
-    "images": [],
+    "images": [
+      {
+        "src": "/assets/images/products/equipment.jpg",
+        "alt": "Dragon Stone — 5kg Pack",
+        "width": 800,
+        "height": 800
+      }
+    ],
     "availability": "in-stock",
-    "tags": ["dragon-stone", "ohko", "hardscape", "aquascaping"],
+    "tags": [
+      "dragon-stone",
+      "ohko",
+      "hardscape",
+      "aquascaping"
+    ],
     "featured": false,
     "newArrival": false,
     "specifications": {
@@ -191,9 +278,21 @@
     "price": 850,
     "description": "Nutrient-rich floating pellets formulated for tropical freshwater fish. Contains spirulina, krill, and essential vitamins for vibrant colour and healthy growth.",
     "shortDescription": "Floating pellets for tropical fish, 100g.",
-    "images": [],
+    "images": [
+      {
+        "src": "/assets/images/products/equipment.jpg",
+        "alt": "Premium Tropical Pellets — 100g",
+        "width": 800,
+        "height": 800
+      }
+    ],
     "availability": "in-stock",
-    "tags": ["food", "pellets", "tropical", "freshwater"],
+    "tags": [
+      "food",
+      "pellets",
+      "tropical",
+      "freshwater"
+    ],
     "featured": false,
     "newArrival": false,
     "specifications": {
@@ -215,10 +314,22 @@
     "price": 8500,
     "description": "Ultra-clear glass nano aquarium with integrated filtration and LED lighting. Perfect for bettas, shrimp, or small planted setups. Includes everything needed to get started.",
     "shortDescription": "Complete 25L nano tank with filter and LED.",
-    "images": [],
+    "images": [
+      {
+        "src": "/assets/images/products/equipment.jpg",
+        "alt": "Crystal Nano Tank — 25L Complete Set",
+        "width": 800,
+        "height": 800
+      }
+    ],
     "availability": "in-stock",
     "brand": "Crystal",
-    "tags": ["nano", "tank", "complete", "starter"],
+    "tags": [
+      "nano",
+      "tank",
+      "complete",
+      "starter"
+    ],
     "featured": true,
     "newArrival": true,
     "specifications": {
@@ -230,7 +341,13 @@
       "Lighting": "7W LED (6500K)"
     },
     "warranty": "1 year",
-    "includes": ["Tank", "Integrated filter", "LED light", "Glass lid", "Filter sponge"],
+    "includes": [
+      "Tank",
+      "Integrated filter",
+      "LED light",
+      "Glass lid",
+      "Filter sponge"
+    ],
     "createdAt": "2026-08-25",
     "updatedAt": "2026-09-12"
   }

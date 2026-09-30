@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, DM_Serif_Display, Space_Grotesk } from 'next/font/google';
 import { CartProvider } from '@/lib/cart';
 import { WishlistProvider } from '@/lib/wishlist';
 import Header from '@/components/layout/Header';
@@ -8,47 +8,59 @@ import './globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--next-font-inter',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
 });
 
-const playfair = Playfair_Display({
+const dmSerif = DM_Serif_Display({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--next-font-display',
   display: 'swap',
+  weight: '400',
+  style: ['normal', 'italic'],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--next-font-ui',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Aqua Pro — Premium Aquatics & Exceptional Environments',
+    default: 'Aqua Pro — Sri Lanka\'s Premier Aquarium Destination',
     template: '%s | Aqua Pro',
   },
   description:
-    "Sri Lanka's premium aquarium destination — live fish, aquariums, filtration, aquascaping supplies, and expert services.",
+    "Sri Lanka's number one aquarium destination. Premium live fish, professional-grade aquarium equipment, custom aquarium builds, and expert aquascaping services — based in Galnewa.",
   keywords: [
-    'aquarium',
-    'fish',
-    'aquatics',
-    'Sri Lanka',
+    'aquarium Sri Lanka',
+    'live fish Sri Lanka',
+    'aquarium shop Sri Lanka',
     'aquascaping',
-    'live fish',
-    'aquarium supplies',
+    'betta fish',
+    'tropical fish',
+    'aquarium equipment',
     'Aqua Pro',
+    'Galnewa aquarium',
+    'custom aquarium',
   ],
-  authors: [{ name: 'Aqua Pro' }],
+  authors: [{ name: 'Aqua Pro', url: 'https://aquapro.lk' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'Aqua Pro',
-    title: 'Aqua Pro — Premium Aquatics & Exceptional Environments',
+    title: 'Aqua Pro — Sri Lanka\'s Premier Aquarium Destination',
     description:
-      "Sri Lanka's premium aquarium destination — live fish, aquariums, filtration, aquascaping supplies, and expert services.",
+      "Sri Lanka's number one aquarium destination. Premium live fish, professional equipment, custom builds, and expert aquascaping.",
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aqua Pro — Premium Aquatics & Exceptional Environments',
+    title: 'Aqua Pro — Sri Lanka\'s Premier Aquarium Destination',
     description:
-      "Sri Lanka's premium aquarium destination — live fish, aquariums, filtration, aquascaping supplies, and expert services.",
+      "Sri Lanka's number one aquarium destination.",
   },
   robots: {
     index: true,
@@ -58,7 +70,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`} data-scroll-behavior="smooth">
+    <html
+      lang="en"
+      className={`${inter.variable} ${dmSerif.variable} ${spaceGrotesk.variable}`}
+    >
       <body>
         <CartProvider>
           <WishlistProvider>
