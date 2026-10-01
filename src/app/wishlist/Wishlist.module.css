@@ -1,50 +1,60 @@
+/* ============================================================
+   AQUA PRO — Wishlist Page
+   ============================================================ */
+
 .wishlistHeader {
-  padding-top: calc(var(--header-height) + var(--space-12));
-  padding-bottom: var(--space-12);
-  background: var(--navy);
+  padding-top: calc(var(--header-h) + var(--sp-10));
+  padding-bottom: var(--sp-12);
+  background: var(--ink-deep);
   text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
 }
 
 .title {
-  font-family: var(--font-playfair);
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 700;
-  color: var(--pure-white);
-  margin-bottom: var(--space-4);
+  font-family: var(--font-body);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: var(--sp-4);
 }
 
 .subtitle {
-  font-size: var(--text-lg);
-  color: var(--gray-400);
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.78);
   max-width: 600px;
   margin-inline: auto;
+  line-height: 1.6;
 }
 
 .wishlistGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-6);
-  padding-block: var(--space-16);
+  gap: var(--sp-6);
+  padding-block: clamp(3rem, 6vw, 5rem);
 }
 
 .emptyState {
   text-align: center;
-  padding-block: var(--space-20);
-  background: var(--navy-light);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-sm);
-  margin-block: var(--space-12);
+  padding: clamp(3rem, 6vw, 5rem) var(--sp-4);
+  background: var(--surface);
+  border: 1px dashed rgba(26, 42, 39, 0.15);
+  border-radius: var(--r-xl);
+  margin-block: var(--sp-12);
+  box-shadow: var(--shadow-sm);
 }
 
 .emptyTitle {
+  font-family: var(--font-body);
   font-size: var(--text-2xl);
-  font-weight: 700;
-  color: var(--pure-white);
-  margin-bottom: var(--space-2);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-2);
 }
 
 .emptyDesc {
-  color: var(--gray-400);
-  margin-bottom: var(--space-6);
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  margin-bottom: var(--sp-6);
 }

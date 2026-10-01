@@ -1,118 +1,131 @@
+/* ============================================================
+   AQUA PRO — Checkout Page
+   ============================================================ */
+
 .loading, .empty {
-  padding: var(--space-20);
+  padding: var(--sp-20);
   text-align: center;
-  color: var(--gray-400);
+  color: var(--text-muted);
 }
 
 .empty {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-6);
-  background: var(--navy);
-  border-radius: var(--radius-sm);
-  border: 1px dashed rgba(255, 255, 255, 0.1);
+  gap: var(--sp-6);
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  border: 1px dashed rgba(26, 42, 39, 0.15);
+  box-shadow: var(--shadow-sm);
 }
 
 .layout {
   display: grid;
   grid-template-columns: 1fr 400px;
-  gap: var(--space-8);
+  gap: var(--sp-8);
   align-items: start;
 }
 
 .formSection {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--sp-6);
 }
 
 .card {
-  background: var(--navy);
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  padding: var(--sp-7);
+  border: 1px solid rgba(26, 42, 39, 0.09);
+  box-shadow: var(--shadow-sm);
 }
 
 .card h2 {
+  font-family: var(--font-body);
   font-size: var(--text-lg);
-  margin-bottom: var(--space-6);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-6);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid rgba(26, 42, 39, 0.08);
 }
 
 .grid2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
+  gap: var(--sp-4);
 }
 
 .grid1 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-4);
+  gap: var(--sp-4);
 }
 
 .inputGroup {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--sp-2);
 }
 
 .inputGroup label {
   font-size: var(--text-sm);
-  color: var(--gray-300);
-  font-weight: 500;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .inputGroup input,
 .inputGroup textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  border: 1px solid rgba(26, 42, 39, 0.16);
   min-height: 44px;
-  border-radius: var(--radius-sm);
-  padding: var(--space-3);
-  color: var(--pure-white);
-  font-family: inherit;
-  transition: border-color var(--transition-fast);
+  border-radius: var(--r-sm);
+  padding: 10px 14px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
 }
 
 .inputGroup input:focus,
 .inputGroup textarea:focus {
   outline: none;
-  border-color: var(--aqua);
+  border-color: var(--teal-500);
+  box-shadow: 0 0 0 3px rgba(102, 197, 183, 0.25);
 }
 
 .pickupNotice {
-  padding: var(--space-3);
-  background: var(--warning-bg);
-  border-radius: var(--radius-sm);
-  color: var(--warning);
+  padding: var(--sp-4);
+  background: rgba(245, 166, 35, 0.12);
+  border-radius: var(--r-md);
+  color: #994d00;
   font-size: var(--text-sm);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--sp-4);
+  line-height: 1.5;
 }
 
 .radioGroup {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--sp-3);
 }
 
 .radioCard {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-4);
-  padding: var(--space-4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-md);
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+  border: 1px solid rgba(26, 42, 39, 0.12);
+  border-radius: var(--r-md);
   cursor: pointer;
-  transition: border-color var(--transition-fast), background var(--transition-fast);
+  background: var(--surface);
+  transition: border-color var(--t-fast), background var(--t-fast);
 }
 
 .radioCard.active {
-  border-color: var(--aqua);
-  background: rgba(0, 180, 216, 0.05);
+  border-color: var(--teal-700);
+  background: rgba(102, 197, 183, 0.08);
 }
 
 .radioCard.disabled {
@@ -122,53 +135,59 @@
 
 .radioCard input[type="radio"] {
   margin-top: 4px;
+  accent-color: var(--teal-700);
 }
 
 .radioContent {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 2px;
 }
 
 .radioTitle {
-  font-weight: 600;
-  color: var(--pure-white);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
 }
 
 .radioDesc {
-  font-size: var(--text-sm);
-  color: var(--gray-400);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
 }
 
 /* Sidebar */
 .summarySidebar {
   position: sticky;
-  top: calc(var(--header-height) + var(--space-8));
+  top: calc(var(--header-h) + var(--sp-8));
 }
 
 .summaryCard {
-  background: var(--navy);
-  border-radius: var(--radius-sm);
-  padding: var(--space-6);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  padding: var(--sp-7);
+  border: 1px solid rgba(26, 42, 39, 0.09);
+  box-shadow: var(--shadow-sm);
 }
 
 .summaryCard h2 {
+  font-family: var(--font-body);
   font-size: var(--text-lg);
-  margin-bottom: var(--space-6);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-6);
 }
 
 .summaryItems {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--sp-4);
 }
 
 .summaryItem {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: var(--space-4);
+  gap: var(--sp-4);
 }
 
 .itemInfo {
@@ -179,80 +198,82 @@
 
 .itemName {
   font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--pure-white);
-  line-height: var(--leading-snug);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
 }
 
 .itemQty {
   font-size: var(--text-xs);
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .itemTotal {
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--text-primary);
   white-space: nowrap;
 }
 
 .divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  margin-block: var(--space-6);
+  background: rgba(26, 42, 39, 0.08);
+  margin-block: var(--sp-5);
 }
 
 .totals {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  margin-bottom: var(--space-6);
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
 }
 
 .totalsRow {
   display: flex;
   justify-content: space-between;
-  color: var(--gray-300);
+  color: var(--text-secondary);
   font-size: var(--text-sm);
 }
 
 .totalsTotal {
   display: flex;
   justify-content: space-between;
-  color: var(--pure-white);
+  color: var(--text-primary);
   font-size: var(--text-lg);
-  font-weight: 700;
-  margin-top: var(--space-2);
-  padding-top: var(--space-2);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 800;
+  margin-top: var(--sp-2);
+  padding-top: var(--sp-3);
+  border-top: 1px solid rgba(26, 42, 39, 0.1);
 }
 
 .paymentNotice {
-  padding: var(--space-4);
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-6);
+  padding: var(--sp-4);
+  background: var(--surface-alt);
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-6);
 }
 
 .paymentNotice p {
   font-size: var(--text-xs);
-  color: var(--gray-400);
-  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 .paymentNotice strong {
-  color: var(--pure-white);
+  color: var(--text-primary);
 }
 
 .submitBtn {
-  margin-top: var(--space-2);
+  margin-top: var(--sp-2);
 }
 
 .errorMessage {
-  padding: var(--space-4);
-  color: #ffd0d8;
+  padding: var(--sp-4);
+  color: #9c142b;
   background: rgba(239, 76, 106, 0.12);
   border: 1px solid rgba(239, 76, 106, 0.35);
-  border-radius: var(--radius-sm);
+  border-radius: var(--r-sm);
+  font-size: var(--text-sm);
 }
 
 @media (max-width: 1024px) {
