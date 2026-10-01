@@ -61,7 +61,7 @@ export default function Hero() {
         </div>
 
         {/* Right: Photo card */}
-        <div className={styles.visual} aria-hidden="true">
+        <div className={styles.visual}>
           <div className={styles.fishCard}>
             <Image
               src="/assets/images/hero/hero-fish.jpg"
