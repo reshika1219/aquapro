@@ -1,18 +1,19 @@
 /* ============================================================
-   AQUA PRO — Contact CTA Section
+   AQUA PRO — Contact CTA Section (Minimalist Luxury)
    ============================================================ */
 
 .cta {
   position: relative;
   overflow: hidden;
   background: var(--ink-deep);
+  color: #ffffff;
 }
 
 .inner {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 1fr;
   gap: clamp(3rem, 6vw, 6rem);
   align-items: center;
 }
@@ -26,58 +27,38 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--teal-400);
-  margin-bottom: var(--sp-5);
+  color: var(--teal-300);
+  margin-bottom: var(--sp-4);
 }
+
 .eyebrow::before {
   content: '';
   width: 20px;
   height: 2px;
-  background: var(--teal-400);
+  background: var(--teal-300);
   border-radius: 2px;
 }
 
 .title {
   font-family: var(--font-body);
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
   font-weight: 800;
-  color: #fff;
-  line-height: 1.1;
+  color: #ffffff;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   margin-bottom: var(--sp-5);
 }
 
 .titleAccent {
-  display: block;
   color: var(--teal-300);
 }
 
 .desc {
   font-size: var(--text-base);
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.75);
   line-height: 1.75;
   max-width: 44ch;
   margin-bottom: var(--sp-8);
-}
-
-.phone {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-3);
-  font-size: var(--text-2xl);
-  font-weight: 800;
-  color: #fff;
-  text-decoration: none;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--sp-8);
-  transition: color var(--t-fast);
-}
-.phone:hover { color: var(--teal-300); }
-.phone svg {
-  width: 24px;
-  height: 24px;
-  color: var(--teal-400);
-  flex-shrink: 0;
 }
 
 .buttons {
@@ -90,47 +71,58 @@
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  padding: 14px var(--sp-7);
+  padding: 13px var(--sp-6);
   background: #25D366;
-  color: #fff;
+  color: #ffffff;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 700;
-  border-radius: var(--r-sm);
+  border-radius: var(--r-md);
   text-decoration: none;
   transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
-  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
 }
+
 .whatsapp:hover {
-  background: #22c35d;
+  background: #20ba59;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(37,211,102,0.45);
-  color: #fff;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  color: #ffffff;
 }
-.whatsapp svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.whatsapp svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
 
 .contactLink {
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  padding: 14px var(--sp-7);
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.9);
+  padding: 13px var(--sp-6);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 700;
-  border-radius: var(--r-sm);
+  border-radius: var(--r-md);
   text-decoration: none;
   transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
 }
+
 .contactLink:hover {
-  background: rgba(255,255,255,0.14);
-  border-color: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
-  color: #fff;
+  color: #ffffff;
 }
-.contactLink svg { width: 14px; height: 14px; }
+
+.contactLink svg {
+  width: 14px;
+  height: 14px;
+}
 
 /* ---- Right: Info cards ---- */
 .infoCards {
@@ -144,51 +136,71 @@
   gap: var(--sp-5);
   align-items: flex-start;
   padding: var(--sp-6);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--r-md);
-  transition: border-color var(--t-base), background var(--t-base);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-xl);
+  transition: border-color var(--t-base), background var(--t-base), transform var(--t-base);
 }
+
 .infoCard:hover {
   border-color: rgba(102, 197, 183, 0.35);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
 }
 
 .infoCardIcon {
   flex-shrink: 0;
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--r-md);
-  background: rgba(102, 197, 183, 0.16);
-  border: 1px solid rgba(102, 197, 183, 0.28);
+  background: rgba(102, 197, 183, 0.15);
+  border: 1px solid rgba(102, 197, 183, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--teal-300);
 }
-.infoCardIcon svg { width: 22px; height: 22px; }
+
+.infoCardIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.infoCardBody {
+  flex: 1;
+}
 
 .infoCardTitle {
+  font-family: var(--font-body);
   font-weight: 700;
   color: #ffffff;
   font-size: var(--text-base);
   margin-bottom: var(--sp-1);
 }
+
 .infoCardText {
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
+  margin: 0;
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .inner {
     grid-template-columns: 1fr;
+    gap: var(--sp-8);
   }
 }
 
 @media (max-width: 600px) {
-  .buttons { flex-direction: column; }
-  .whatsapp, .contactLink { justify-content: center; }
-  .title { font-size: 2rem; }
+  .buttons {
+    flex-direction: column;
+  }
+  .whatsapp,
+  .contactLink {
+    justify-content: center;
+    width: 100%;
+  }
 }
+

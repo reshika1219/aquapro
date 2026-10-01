@@ -1,109 +1,78 @@
 /* ============================================================
-   AQUA PRO — Why Aqua Pro
+   AQUA PRO — Why Aqua Pro (Minimalist Luxury)
    ============================================================ */
 
 .section {
   position: relative;
   overflow: hidden;
-  background: var(--ink-mid);
-}
-
-/* Teal glow orb */
-.section::before {
-  content: '';
-  position: absolute;
-  bottom: -300px;
-  right: -200px;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(ellipse, rgba(58,154,145,0.07) 0%, transparent 70%);
-  pointer-events: none;
-  border-radius: 50%;
+  background: #ffffff;
+  border-top: 1px solid rgba(26, 42, 39, 0.05);
 }
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.15fr;
   gap: clamp(3rem, 6vw, 6rem);
   align-items: start;
 }
 
 /* ---- Left column ---- */
-.tagline {
-  font-family: var(--font-body);
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.5;
-  margin-top: var(--sp-6);
-  margin-bottom: var(--sp-8);
-  max-width: 38ch;
-  border-left: 3px solid var(--teal-400);
-  padding-left: var(--sp-5);
-}
-
-.ctaGroup {
+.left {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-3);
 }
 
-.contactItem {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  font-size: var(--text-sm);
-  font-weight: 600;
+.leadText {
+  font-size: var(--text-base);
   color: var(--text-secondary);
-  text-decoration: none;
-  transition: color var(--t-fast);
-}
-.contactItem:hover { color: var(--text-primary); }
-
-.contactItem svg {
-  width: 18px;
-  height: 18px;
-  color: var(--teal-400);
-  flex-shrink: 0;
+  line-height: 1.75;
+  margin-top: var(--sp-4);
+  margin-bottom: var(--sp-8);
+  max-width: 44ch;
 }
 
-/* ---- Stats band ---- */
+/* ---- Stats grid ---- */
 .stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--sp-4);
-  margin-top: var(--sp-10);
+  margin-bottom: var(--sp-8);
 }
 
 .statCard {
   padding: var(--sp-6);
-  background: rgba(255,255,255,0.7);
-  border: 1px solid rgba(58,154,145,0.15);
-  border-radius: var(--r-md);
+  background: var(--ink);
+  border: 1px solid rgba(26, 42, 39, 0.06);
+  border-radius: var(--r-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--sp-1);
-  backdrop-filter: blur(4px);
-  transition: border-color var(--t-base), box-shadow var(--t-base);
+  gap: 4px;
+  transition: border-color var(--t-base), transform var(--t-base);
 }
+
 .statCard:hover {
-  border-color: rgba(58,154,145,0.3);
-  box-shadow: var(--shadow-sm);
+  border-color: rgba(33, 113, 109, 0.25);
+  transform: translateY(-2px);
 }
 
 .statVal {
   font-family: var(--font-body);
   font-size: var(--text-3xl);
-  font-weight: 900;
-  color: var(--teal-400);
-  letter-spacing: -0.04em;
-  line-height: 1;
+  font-weight: 800;
+  color: var(--teal-700);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .statLabel {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 600;
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
 }
 
 /* ---- Right column: reasons list ---- */
@@ -117,55 +86,75 @@
   display: flex;
   gap: var(--sp-5);
   padding: var(--sp-6);
-  background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: var(--r-sm);
+  background: var(--surface);
+  border: 1px solid rgba(26, 42, 39, 0.08);
+  border-radius: var(--r-xl);
   align-items: flex-start;
-  transition: border-color var(--t-base), background var(--t-base);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--t-base), transform var(--t-base), box-shadow var(--t-base);
 }
 
 .reasonCard:hover {
-  border-color: rgba(0,196,238,0.15);
-  background: rgba(0,196,238,0.03);
+  border-color: rgba(33, 113, 109, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(26, 42, 39, 0.08);
 }
 
 .reasonIcon {
   flex-shrink: 0;
   width: 44px;
   height: 44px;
-  border-radius: var(--r-lg);
-  background: rgba(0,196,238,0.1);
-  border: 1px solid rgba(0,196,238,0.15);
+  border-radius: var(--r-md);
+  background: rgba(33, 113, 109, 0.06);
+  border: 1px solid rgba(33, 113, 109, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--teal-400);
-  transition: background var(--t-base);
+  color: var(--teal-700);
+  transition: background var(--t-base), color var(--t-base);
 }
-.reasonCard:hover .reasonIcon { background: rgba(0,196,238,0.18); }
-.reasonIcon svg { width: 22px; height: 22px; }
+
+.reasonCard:hover .reasonIcon {
+  background: var(--teal-700);
+  color: #ffffff;
+}
+
+.reasonIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.reasonBody {
+  flex: 1;
+}
 
 .reasonTitle {
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: var(--sp-2);
+  margin-bottom: var(--sp-1);
   letter-spacing: -0.01em;
 }
+
 .reasonDesc {
   font-size: var(--text-sm);
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.65;
+  margin: 0;
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
-  .layout { grid-template-columns: 1fr; }
-  .stats  { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-8);
+  }
 }
 
-@media (max-width: 640px) {
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .tagline { font-size: 1.1rem; }
+@media (max-width: 600px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
 }
+

@@ -36,7 +36,7 @@ export default function ProductSection({
             <p className="section-subtitle">{subtitle}</p>
           </div>
           <div className={styles.headerRight}>
-            <Link href={viewAllHref} className="btn btn--teal-outline btn--sm">
+            <Link href={viewAllHref} className="btn btn--ghost btn--sm">
               {viewAllLabel}
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" width={14} height={14}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
