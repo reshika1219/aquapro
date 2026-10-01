@@ -36,19 +36,20 @@
   display: flex;
   flex-direction: column;
   padding: var(--sp-8);
-  background: var(--ink-soft);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: var(--r-sm);
+  background: var(--surface);
+  border: 1px solid rgba(26,42,39,0.08);
+  border-radius: var(--r-lg);
   text-decoration: none;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
   transition: border-color var(--t-base), transform var(--t-base), box-shadow var(--t-base);
   cursor: pointer;
 }
 
 .card:hover {
-  border-color: rgba(0,196,238,0.2);
+  border-color: rgba(58,154,145,0.25);
   transform: translateY(-5px);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,196,238,0.08);
+  box-shadow: 0 24px 60px rgba(26,42,39,0.12), 0 0 0 1px rgba(58,154,145,0.1);
 }
 
 /* Background number */
@@ -56,17 +57,17 @@
   position: absolute;
   top: var(--sp-4);
   right: var(--sp-5);
-  font-family: var(--font-ui);
+  font-family: var(--font-body);
   font-size: 5rem;
   font-weight: 900;
-  color: rgba(255,255,255,0.03);
+  color: rgba(26,42,39,0.04);
   line-height: 1;
   pointer-events: none;
   user-select: none;
   letter-spacing: -0.05em;
   transition: color var(--t-slow);
 }
-.card:hover .cardNumber { color: rgba(0,196,238,0.05); }
+.card:hover .cardNumber { color: rgba(58,154,145,0.06); }
 
 /* Icon */
 .iconWrap {
@@ -75,23 +76,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,196,238,0.1);
-  border: 1px solid rgba(0,196,238,0.15);
+  background: rgba(58,154,145,0.08);
+  border: 1px solid rgba(58,154,145,0.15);
   border-radius: var(--r-lg);
-  color: var(--teal-400);
+  color: var(--teal-700);
   margin-bottom: var(--sp-6);
   flex-shrink: 0;
   transition: background var(--t-base), border-color var(--t-base);
 }
 .iconWrap svg { width: 24px; height: 24px; }
 .card:hover .iconWrap {
-  background: rgba(0,196,238,0.18);
-  border-color: rgba(0,196,238,0.35);
+  background: rgba(58,154,145,0.14);
+  border-color: rgba(58,154,145,0.3);
 }
 
 /* Text */
 .cardTitle {
-  font-family: var(--font-ui);
+  font-family: var(--font-body);
   font-size: var(--text-xl);
   font-weight: 800;
   color: var(--text-primary);
@@ -113,15 +114,15 @@
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  font-family: var(--font-ui);
+  font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--teal-400);
+  color: var(--teal-700);
   margin-top: auto;
   transition: gap var(--t-fast), color var(--t-fast);
 }
 .cardCta svg { width: 14px; height: 14px; flex-shrink: 0; }
-.card:hover .cardCta { gap: var(--sp-3); color: var(--teal-300); }
+.card:hover .cardCta { gap: var(--sp-3); color: var(--teal-500); }
 
 /* ---- Bottom CTA Banner ---- */
 .ctaBanner {

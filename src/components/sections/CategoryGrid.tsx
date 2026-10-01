@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getAllCategories, getProductCountByCategory } from '@/lib/products';
 import styles from './CategoryGrid.module.css';
 
@@ -62,15 +63,16 @@ const categoryIcons: Record<string, React.ReactNode> = {
   ),
 };
 
-const categoryColors: Record<string, string> = {
-  'live-aquatics': 'rgba(0,196,238,0.08)',
-  'aquariums':     'rgba(124,110,248,0.08)',
-  'filtration':    'rgba(34,200,126,0.08)',
-  'equipment':     'rgba(245,166,35,0.08)',
-  'fish-food':     'rgba(255,107,74,0.08)',
-  'aquascaping':   'rgba(0,196,238,0.08)',
-  'water-care':    'rgba(124,110,248,0.08)',
-  'accessories':   'rgba(34,200,126,0.08)',
+// Maps each category ID to its actual image file (JPG or PNG — whatever you placed there)
+const categoryImages: Record<string, string> = {
+  'live-aquatics': '/assets/images/categories/live-aquatics.jpg',
+  'aquariums':     '/assets/images/categories/aquariums.png',
+  'filtration':    '/assets/images/categories/filtration.png',
+  'equipment':     '/assets/images/categories/equipment.png',
+  'fish-food':     '/assets/images/categories/fish-food.png',
+  'aquascaping':   '/assets/images/categories/aquascaping.png',
+  'water-care':    '/assets/images/categories/water-care.png',
+  'accessories':   '/assets/images/categories/accessories.png',
 };
 
 export default function CategoryGrid() {
@@ -82,6 +84,9 @@ export default function CategoryGrid() {
         <div className={styles.header}>
           <span className="section-eyebrow">Shop by Category</span>
           <h2 className="section-title">Everything Your<br />Aquarium Needs</h2>
+          <p className="section-subtitle">
+            From live fish and aquatic plants to filtration, lighting, and aquascaping tools — pick a category to explore.
+          </p>
         </div>
 
         <div className={styles.grid}>
@@ -91,12 +96,22 @@ export default function CategoryGrid() {
               href={`/shop/${category.slug}`}
               className={styles.tile}
               id={`category-tile-${category.id}`}
-              style={{ '--tile-accent': categoryColors[category.id] || 'rgba(0,196,238,0.06)' } as React.CSSProperties}
             >
-              {/* Large watermark icon */}
-              <div className={styles.iconWatermark} aria-hidden="true">
-                {categoryIcons[category.id]}
-              </div>
+              {/* Background image — covers the tile regardless of source aspect ratio */}
+              {categoryImages[category.id] && (
+                <Image
+                  src={categoryImages[category.id]}
+                  alt=""
+                  fill
+                  sizes="(max-width: 760px) 50vw, 25vw"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  className={styles.tileImage}
+                  aria-hidden="true"
+                />
+              )}
+
+              {/* Dark gradient overlay for text readability */}
+              <div className={styles.tileOverlay} aria-hidden="true" />
 
               {/* Small icon chip */}
               <div className={styles.iconChip} aria-hidden="true">
