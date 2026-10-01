@@ -38,8 +38,8 @@
   --sale:        #ff6b4a;
   --new:         #9be0d2;
 
-  /* Typography (Single Unified Font Family) */
-  --font-sans:    var(--font-sans, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  /* Typography (Single Unified Font Family: Plus Jakarta Sans) */
+  --font-sans:    var(--font-sans, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
   --font-body:    var(--font-sans);
   --font-display: var(--font-sans);
   --font-ui:      var(--font-sans);
