@@ -160,14 +160,14 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 40px;
-  padding: 8px 12px;
+  min-height: 38px;
+  padding: 6px 12px;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--text-secondary);
   letter-spacing: -0.01em;
-  border-radius: var(--r-sm);
+  border-radius: var(--r-md);
   cursor: pointer;
   border: none;
   background: none;
@@ -175,8 +175,8 @@
 }
 
 .navDropdownTrigger svg {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   transition: transform var(--t-base);
   flex-shrink: 0;
 }
@@ -188,34 +188,45 @@
   background: var(--surface-alt);
 }
 
-.shopDropdown:hover .navDropdownTrigger svg {
+.shopDropdown:hover .navDropdownTrigger svg,
+.shopDropdown.open .navDropdownTrigger svg {
   transform: rotate(180deg);
 }
 
-/* Mega panel */
+/* Mega panel with invisible hover bridge */
 .shopPanel {
   position: absolute;
-  top: calc(100% + 12px);
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 680px;
+  transform: translateX(-50%) translateY(4px);
+  width: 640px;
   background: var(--surface);
-  border: 1px solid rgba(26,42,39,0.12);
+  border: 1px solid rgba(26, 42, 39, 0.1);
   border-radius: var(--r-xl);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 48px rgba(26, 42, 39, 0.16);
   padding: var(--sp-5);
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transform: translateX(-50%) translateY(-8px);
-  transition: opacity var(--t-base), transform var(--t-base), visibility var(--t-base);
-  z-index: 200;
+  transition: opacity 200ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1), visibility 200ms;
+  z-index: 250;
+  margin-top: 6px;
+}
+
+/* Invisible bridge prevents closing when moving mouse between trigger and menu */
+.shopPanel::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
 }
 
 .shopDropdown:hover .shopPanel,
 .shopDropdown.open .shopPanel {
   opacity: 1;
-  pointer-events: all;
+  pointer-events: auto;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
@@ -225,8 +236,8 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--sp-4);
-  padding-bottom: var(--sp-4);
-  border-bottom: 1px solid rgba(26,42,39,0.1);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid rgba(26, 42, 39, 0.08);
 }
 
 .shopPanelTitle {
@@ -240,20 +251,24 @@
 
 .shopPanelAll {
   font-size: var(--text-xs);
-  font-weight: 600;
-  color: var(--teal-400);
+  font-weight: 700;
+  color: var(--teal-700);
   text-decoration: none;
   transition: color var(--t-fast);
   display: flex;
   align-items: center;
   gap: 4px;
 }
-.shopPanelAll:hover { color: var(--teal-300); }
+
+.shopPanelAll:hover {
+  color: var(--teal-900);
+  text-decoration: underline;
+}
 
 .shopPanelGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--sp-2);
+  gap: var(--sp-3);
 }
 
 .shopPanelItem {
@@ -268,23 +283,27 @@
 }
 
 .shopPanelItem:hover {
-  background: rgba(0,196,238,0.07);
+  background: rgba(33, 113, 109, 0.08);
   transform: translateY(-2px);
 }
 
 .shopPanelItemIcon {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,196,238,0.08);
+  background: rgba(33, 113, 109, 0.06);
+  border: 1px solid rgba(33, 113, 109, 0.12);
   border-radius: var(--r-md);
-  color: var(--teal-400);
-  transition: background var(--t-fast);
+  color: var(--teal-700);
+  transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
 }
+
 .shopPanelItem:hover .shopPanelItemIcon {
-  background: rgba(0,196,238,0.14);
+  background: var(--teal-700);
+  border-color: var(--teal-700);
+  color: #ffffff;
 }
 
 .shopPanelItemIcon svg {
@@ -293,14 +312,17 @@
 }
 
 .shopPanelItemName {
-  font-size: 11px;
+  font-size: var(--text-xs);
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   text-align: center;
   line-height: 1.3;
   transition: color var(--t-fast);
 }
-.shopPanelItem:hover .shopPanelItemName { color: var(--text-primary); }
+
+.shopPanelItem:hover .shopPanelItemName {
+  color: var(--teal-700);
+}
 
 /* ---- Actions ---- */
 .actions {

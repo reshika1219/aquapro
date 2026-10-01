@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -74,6 +74,7 @@ export default function Header() {
   const [mobileShopOpen, setMobileShopOpen] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
   const { getItemCount } = useCart();
   const { getCount: getWishlistCount } = useWishlist();
 
@@ -99,18 +100,37 @@ export default function Header() {
     document.body.style.overflow = 'hidden';
   }, []);
 
-  useEffect(() => { closeMobile(); }, [pathname, closeMobile]);
+  useEffect(() => {
+    closeMobile();
+    setShopOpen(false);
+  }, [pathname, closeMobile]);
+
+  // Click outside to close desktop dropdown
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setShopOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        if (shopOpen) setShopOpen(false);
         if (searchOpen) setSearchOpen(false);
         if (mobileOpen) closeMobile();
       }
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [mobileOpen, closeMobile, searchOpen]);
+  }, [mobileOpen, closeMobile, searchOpen, shopOpen]);
 
   const navLinkClass = (href: string) =>
     `${styles.navLink} ${isNavActive(pathname, href) ? styles.navLinkActive : ''}`;
@@ -167,7 +187,12 @@ export default function Header() {
           <nav className={styles.nav} aria-label="Main navigation">
             <Link href="/" className={navLinkClass('/')}>Home</Link>
             {/* Shop dropdown */}
-            <div className={`${styles.shopDropdown} ${shopActive ? styles.shopActive : ''} ${shopOpen ? styles.open : ''}`}>
+            <div
+              ref={dropdownRef}
+              className={`${styles.shopDropdown} ${shopActive ? styles.shopActive : ''} ${shopOpen ? styles.open : ''}`}
+              onMouseEnter={() => setShopOpen(true)}
+              onMouseLeave={() => setShopOpen(false)}
+            >
               <button
                 type="button"
                 className={`${styles.navDropdownTrigger} ${shopActive ? styles.navLinkActive : ''}`}
@@ -175,7 +200,7 @@ export default function Header() {
                 aria-label="Shop categories"
                 aria-expanded={shopOpen}
                 id="header-shop-menu"
-                onClick={() => setShopOpen(open => !open)}
+                onClick={() => setShopOpen(prev => !prev)}
               >
                 Shop
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" aria-hidden>
@@ -186,8 +211,8 @@ export default function Header() {
               <div className={styles.shopPanel} role="menu">
                 <div className={styles.shopPanelHeader}>
                   <span className={styles.shopPanelTitle}>Browse Categories</span>
-                  <Link href="/shop" className={styles.shopPanelAll} role="menuitem">
-                    View all →
+                  <Link href="/shop" className={styles.shopPanelAll} role="menuitem" onClick={() => setShopOpen(false)}>
+                    View all products →
                   </Link>
                 </div>
                 <div className={styles.shopPanelGrid}>
@@ -197,6 +222,7 @@ export default function Header() {
                       href={`/shop/${cat.slug}`}
                       className={styles.shopPanelItem}
                       role="menuitem"
+                      onClick={() => setShopOpen(false)}
                     >
                       <span className={styles.shopPanelItemIcon}>
                         {categoryIcons[cat.id]}
