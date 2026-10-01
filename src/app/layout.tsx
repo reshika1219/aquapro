@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, DM_Serif_Display, Space_Grotesk } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { CartProvider } from '@/lib/cart';
 import { WishlistProvider } from '@/lib/wishlist';
 import Header from '@/components/layout/Header';
@@ -8,24 +8,9 @@ import './globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
-  variable: '--next-font-inter',
+  variable: '--font-sans',
   display: 'swap',
   weight: ['300', '400', '500', '600', '700', '800', '900'],
-});
-
-const dmSerif = DM_Serif_Display({
-  subsets: ['latin'],
-  variable: '--next-font-display',
-  display: 'swap',
-  weight: '400',
-  style: ['normal', 'italic'],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--next-font-ui',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -72,9 +57,10 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${dmSerif.variable} ${spaceGrotesk.variable}`}
+      className={inter.variable}
     >
       <body>
+        <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <CartProvider>
           <WishlistProvider>
             <Header />

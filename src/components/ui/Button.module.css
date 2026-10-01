@@ -8,11 +8,11 @@
   gap: 0.5rem;
   min-height: 44px;
   padding: 11px 1.5rem;
-  font-family: var(--font-ui, 'Inter', sans-serif);
-  font-size: var(--text-sm, 0.8125rem);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   font-weight: 700;
   letter-spacing: 0.01em;
-  border-radius: var(--r-sm, 6px);
+  border-radius: var(--r-sm);
   cursor: pointer;
   transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
   white-space: nowrap;

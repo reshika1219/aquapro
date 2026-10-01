@@ -38,24 +38,26 @@
   --sale:        #ff6b4a;
   --new:         #9be0d2;
 
-  /* Typography */
-  --font-body:    var(--next-font-inter, sans-serif);
-  --font-display: var(--next-font-display, Georgia, serif);
-  --font-ui:      var(--next-font-ui, sans-serif);
+  /* Typography (Single Unified Font Family) */
+  --font-sans:    var(--font-sans, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  --font-body:    var(--font-sans);
+  --font-display: var(--font-sans);
+  --font-ui:      var(--font-sans);
 
-  /* Type scale */
-  --text-xs:   0.6875rem;
-  --text-sm:   0.8125rem;
-  --text-base: 1rem;
-  --text-md:   1.0625rem;
-  --text-lg:   1.1875rem;
-  --text-xl:   1.375rem;
-  --text-2xl:  1.625rem;
-  --text-3xl:  2rem;
-  --text-4xl:  2.5rem;
-  --text-5xl:  3.25rem;
-  --text-6xl:  4rem;
-  --text-7xl:  5rem;
+  /* Standardized Type Scale */
+  --text-2xs:  0.6875rem; /* 11px */
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-md:   1.0625rem; /* 17px */
+  --text-lg:   1.125rem;  /* 18px */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px */
+  --text-3xl:  1.875rem;  /* 30px */
+  --text-4xl:  2.25rem;   /* 36px */
+  --text-5xl:  3rem;      /* 48px */
+  --text-6xl:  3.75rem;   /* 60px */
+  --text-7xl:  4.5rem;    /* 72px */
 
   /* Spacing */
   --sp-1:  0.25rem;
@@ -195,27 +197,27 @@ body {
   }
 }
 
-/* ---- Typography ---- */
+/* ---- Typography Hierarchy ---- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-ui);
+  font-family: var(--font-body);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
   color: var(--text-primary);
 }
 
 h1, h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.015em;
+  font-family: var(--font-body);
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, var(--text-6xl)); }
-h2 { font-size: clamp(1.85rem, 3.5vw, var(--text-5xl)); }
-h3 { font-size: clamp(1.25rem, 2vw, var(--text-2xl)); }
-h4 { font-size: var(--text-xl); }
-h5 { font-size: var(--text-lg); }
-h6 { font-size: var(--text-base); }
+h1 { font-size: clamp(2.25rem, 4.5vw, var(--text-6xl)); line-height: 1.1; }
+h2 { font-size: clamp(1.75rem, 3.2vw, var(--text-4xl)); line-height: 1.15; }
+h3 { font-size: clamp(1.25rem, 2vw, var(--text-2xl)); line-height: 1.25; }
+h4 { font-size: var(--text-xl); font-weight: 700; }
+h5 { font-size: var(--text-lg); font-weight: 600; }
+h6 { font-size: var(--text-base); font-weight: 600; }
 
 p {
   color: var(--text-secondary);
@@ -258,12 +260,12 @@ input, textarea, select {
 
 /* ---- Scrollbar ---- */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--ink-deep); }
+::-webkit-scrollbar-track { background: var(--ink); }
 ::-webkit-scrollbar-thumb {
-  background: var(--ink-soft);
+  background: var(--teal-700);
   border-radius: var(--r-full);
 }
-::-webkit-scrollbar-thumb:hover { background: var(--teal-900); }
+::-webkit-scrollbar-thumb:hover { background: var(--teal-500); }
 
 ::selection {
   background: var(--teal-200);
@@ -295,7 +297,7 @@ input, textarea, select {
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  font-family: var(--font-ui);
+  font-family: var(--font-body);
   font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -336,7 +338,7 @@ input, textarea, select {
   justify-content: center;
   gap: var(--sp-2);
   padding: 13px var(--sp-7);
-  font-family: var(--font-ui);
+  font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -425,6 +427,28 @@ input, textarea, select {
   clip: rect(0,0,0,0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* ---- Skip to content ---- */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: var(--sp-4);
+  z-index: var(--z-toast);
+  padding: 12px var(--sp-6);
+  background: var(--teal-400);
+  color: var(--ink-deep);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 800;
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  transition: top var(--t-fast);
+}
+.skip-to-content:focus {
+  top: var(--sp-4);
+  outline: 3px solid var(--teal-300);
+  outline-offset: 2px;
 }
 
 /* ---- Dividers ---- */
