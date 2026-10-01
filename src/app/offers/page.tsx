@@ -16,6 +16,7 @@ export default function OffersPage() {
     <>
       <section className={styles.offersHeader}>
         <div className="container">
+          <span className={styles.eyebrow}>Limited Time Specials</span>
           <h1 className={styles.title}>Exclusive Offers & Packages</h1>
           <p className={styles.subtitle}>
             Hand-curated bundles and promotional pricing on top-tier aquatic equipment and supplies.
@@ -26,10 +27,13 @@ export default function OffersPage() {
       <section className="container">
         <div className={styles.offersGrid}>
           {offers.map(item => (
-            <div key={item.id} className={styles.offerCard}>
-              <span className={styles.badge}>{item.badge}</span>
+            <article key={item.id} className={styles.offerCard}>
+              <div className={styles.cardHeader}>
+                <span className={styles.badge}>{item.badge}</span>
+                <span className={styles.categoryBadge}>{item.categorySlug.replace('-', ' ')}</span>
+              </div>
               <div className={styles.cardBody}>
-                <h3 className={styles.offerTitle}>{item.title}</h3>
+                <h2 className={styles.offerTitle}>{item.title}</h2>
                 <p className={styles.offerDesc}>{item.desc}</p>
                 <div className={styles.priceRow}>
                   <span className={styles.specialPrice}>{item.specialPrice}</span>
@@ -52,7 +56,7 @@ export default function OffersPage() {
                   </Button>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
