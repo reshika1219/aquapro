@@ -11,10 +11,8 @@
     "shortDescription": "Halfmoon variety with vivid blue coloration.",
     "images": [
       {
-        "src": "/assets/images/products/fish.jpg",
-        "alt": "Halfmoon Betta — Royal Blue",
-        "width": 800,
-        "height": 800
+        "src": "/assets/images/products/betta-halfmoon-blue.png",
+        "alt": "Halfmoon Betta — Royal Blue"
       }
     ],
     "availability": "in-stock",
@@ -55,10 +53,8 @@
     "shortDescription": "Classic community schooling fish.",
     "images": [
       {
-        "src": "/assets/images/products/fish.jpg",
-        "alt": "Neon Tetra",
-        "width": 800,
-        "height": 800
+        "src": "/assets/images/products/neon-tetra.png",
+        "alt": "Neon Tetra"
       }
     ],
     "availability": "in-stock",
@@ -99,10 +95,8 @@
     "shortDescription": "Large, interactive cichlid with tiger markings.",
     "images": [
       {
-        "src": "/assets/images/products/fish.jpg",
-        "alt": "Tiger Oscar",
-        "width": 800,
-        "height": 800
+        "src": "/assets/images/products/tiger-oscar.png",
+        "alt": "Tiger Oscar"
       }
     ],
     "availability": "limited",
@@ -144,10 +138,8 @@
     "shortDescription": "External canister filter for tanks up to 400L.",
     "images": [
       {
-        "src": "/assets/images/products/equipment.jpg",
-        "alt": "AquaClear Pro Canister Filter 1000",
-        "width": 800,
-        "height": 800
+        "src": "/assets/images/products/canister-filter-1000.png",
+        "alt": "AquaClear Pro Canister Filter 1000"
       }
     ],
     "availability": "in-stock",
@@ -197,10 +189,8 @@
     "shortDescription": "Full-spectrum planted tank LED, 90cm.",
     "images": [
       {
-        "src": "/assets/images/products/equipment.jpg",
-        "alt": "PlantGrow LED Light 90cm",
-        "width": 800,
-        "height": 800
+        "src": "/assets/images/products/led-planted-light-90.png",
+        "alt": "PlantGrow LED Light 90cm"
       }
     ],
     "availability": "in-stock",
@@ -244,10 +234,8 @@
     "shortDescription": "Natural Ohko Stone for aquascaping, 5kg.",
     "images": [
       {
-        "src": "/assets/images/products/equipment.jpg",
-        "alt": "Dragon Stone — 5kg Pack",
-        "width": 800,
-        "height": 800
+        "src": "/assets/images/products/dragon-stone-5kg.png",
+        "alt": "Dragon Stone — 5kg Pack"
       }
     ],
     "availability": "in-stock",
@@ -280,10 +268,8 @@
     "shortDescription": "Floating pellets for tropical fish, 100g.",
     "images": [
       {
-        "src": "/assets/images/products/equipment.jpg",
-        "alt": "Premium Tropical Pellets — 100g",
-        "width": 800,
-        "height": 800
+        "src": "/assets/images/products/tropical-pellets-100g.png",
+        "alt": "Premium Tropical Pellets — 100g"
       }
     ],
     "availability": "in-stock",
@@ -316,10 +302,8 @@
     "shortDescription": "Complete 25L nano tank with filter and LED.",
     "images": [
       {
-        "src": "/assets/images/products/equipment.jpg",
-        "alt": "Crystal Nano Tank — 25L Complete Set",
-        "width": 800,
-        "height": 800
+        "src": "/assets/images/products/nano-tank-25l.png",
+        "alt": "Crystal Nano Tank — 25L Complete Set"
       }
     ],
     "availability": "in-stock",
