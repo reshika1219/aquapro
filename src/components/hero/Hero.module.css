@@ -188,6 +188,7 @@
   display: block;
   background: linear-gradient(135deg, #ffffff 30%, var(--teal-300) 85%, var(--gold-light) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 30px rgba(102, 197, 183, 0.2);
 }
