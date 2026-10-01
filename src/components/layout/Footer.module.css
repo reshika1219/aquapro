@@ -26,8 +26,6 @@
 }
 
 /* ---- Brand column ---- */
-.brand {}
-
 .logoWrap {
   display: block;
   margin-bottom: var(--sp-5);
@@ -69,8 +67,6 @@
 }
 
 /* ---- Link columns ---- */
-.column {}
-
 .columnTitle {
   font-family: var(--font-body);
   font-size: 12.5px;

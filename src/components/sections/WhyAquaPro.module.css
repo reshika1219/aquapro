@@ -29,8 +29,6 @@
 }
 
 /* ---- Left column ---- */
-.left {}
-
 .tagline {
   font-family: var(--font-body);
   font-size: clamp(1.25rem, 2vw, 1.5rem);
@@ -147,7 +145,6 @@
 .reasonCard:hover .reasonIcon { background: rgba(0,196,238,0.18); }
 .reasonIcon svg { width: 22px; height: 22px; }
 
-.reasonBody {}
 .reasonTitle {
   font-family: var(--font-body);
   font-size: var(--text-base);
