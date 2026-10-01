@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
 /* ============================================================
    AQUA PRO — Complete Design System
    World-class aquarium destination, Sri Lanka
@@ -38,11 +40,11 @@
   --sale:        #ff6b4a;
   --new:         #9be0d2;
 
-  /* Typography (Single Unified Font Family: Plus Jakarta Sans) */
-  --font-sans:    var(--font-sans, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
-  --font-body:    var(--font-sans);
-  --font-display: var(--font-sans);
-  --font-ui:      var(--font-sans);
+  /* Typography (Single Unified Font Family: Josefin Sans Everywhere) */
+  --font-body:    'Josefin Sans', var(--font-josefin), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans:    var(--font-body);
+  --font-display: var(--font-body);
+  --font-ui:      var(--font-body);
 
   /* Standardized Type Scale */
   --text-2xs:  0.6875rem; /* 11px */

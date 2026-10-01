@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Josefin_Sans } from 'next/font/google';
 import { CartProvider } from '@/lib/cart';
 import { WishlistProvider } from '@/lib/wishlist';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import './globals.css';
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const josefinSans = Josefin_Sans({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-josefin',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -57,9 +57,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={plusJakartaSans.variable}
+      className={`${josefinSans.variable} ${josefinSans.className}`}
     >
-      <body>
+      <body className={josefinSans.className}>
         <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <CartProvider>
           <WishlistProvider>
