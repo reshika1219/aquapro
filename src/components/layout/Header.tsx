@@ -122,23 +122,31 @@ export default function Header() {
         role="banner"
       >
         <div className={styles.utilityBar}>
-          {/* Duplicated content for seamless marquee loop */}
-          <div className={styles.utilityInner} aria-live="off">
-            <span>Healthy livestock, carefully packed</span>
-            <span className={styles.utilityDivider} aria-hidden="true" />
-            <span>Islandwide delivery available</span>
-            <span className={styles.utilityDivider} aria-hidden="true" />
-            <Link href="/offers">See current offers →</Link>
-            <span className={styles.utilityDivider} aria-hidden="true" />
-            <span>500+ species in store</span>
-            <span className={styles.utilityDivider} aria-hidden="true" />
-            <span>Healthy livestock, carefully packed</span>
-            <span className={styles.utilityDivider} aria-hidden="true" />
-            <span>Islandwide delivery available</span>
-            <span className={styles.utilityDivider} aria-hidden="true" />
-            <Link href="/offers" tabIndex={-1} aria-hidden="true">See current offers →</Link>
-            <span className={styles.utilityDivider} aria-hidden="true" />
-            <span>500+ species in store</span>
+          <div className={styles.marqueeTrack}>
+            <div className={styles.marqueeGroup}>
+              <span>Quarantine-Certified Livestock & Marine Life</span>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+              <span>Islandwide Delivery with Safe Oxygenated Packing</span>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+              <Link href="/offers">View Current Special Offers →</Link>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+              <span>Flagship Showroom in Galnewa · Open 7 Days</span>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+              <span>Master Aquarist Support via WhatsApp</span>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+            </div>
+            <div className={styles.marqueeGroup} aria-hidden="true">
+              <span>Quarantine-Certified Livestock & Marine Life</span>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+              <span>Islandwide Delivery with Safe Oxygenated Packing</span>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+              <Link href="/offers" tabIndex={-1}>View Current Special Offers →</Link>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+              <span>Flagship Showroom in Galnewa · Open 7 Days</span>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+              <span>Master Aquarist Support via WhatsApp</span>
+              <span className={styles.utilityDivider} aria-hidden="true" />
+            </div>
           </div>
         </div>
         <div className={styles.inner}>
