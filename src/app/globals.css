@@ -283,13 +283,13 @@ input, textarea, select {
 .container--sm   { max-width: var(--max-w-sm); }
 
 .section {
-  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-block: clamp(2.5rem, 4.5vw, 4rem);
 }
 .section--sm {
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
 }
 .section--lg {
-  padding-block: clamp(5rem, 10vw, 9rem);
+  padding-block: clamp(3rem, 5.5vw, 5rem);
 }
 
 /* Section header — consistent across all sections */

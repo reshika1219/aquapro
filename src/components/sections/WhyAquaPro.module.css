@@ -12,7 +12,7 @@
 .layout {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: clamp(3rem, 6vw, 6rem);
+  gap: clamp(2rem, 4.5vw, 4rem);
   align-items: start;
 }
 
@@ -25,9 +25,9 @@
 .leadText {
   font-size: var(--text-base);
   color: var(--text-secondary);
-  line-height: 1.75;
-  margin-top: var(--sp-4);
-  margin-bottom: var(--sp-8);
+  line-height: 1.7;
+  margin-top: var(--sp-3);
+  margin-bottom: var(--sp-6);
   max-width: 44ch;
 }
 
@@ -35,18 +35,18 @@
 .stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--sp-4);
-  margin-bottom: var(--sp-8);
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
 }
 
 .statCard {
-  padding: var(--sp-6);
+  padding: var(--sp-5);
   background: var(--ink);
   border: 1px solid rgba(26, 42, 39, 0.06);
   border-radius: var(--r-lg);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   transition: border-color var(--t-base), transform var(--t-base);
 }
 

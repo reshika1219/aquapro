@@ -424,23 +424,23 @@ export default function Hero() {
 
             {/* Micro Tag */}
             <span className={styles.tagline}>
-              Living Aquarium Studio · Sri Lanka
+              Est. 2014 · Galnewa, Sri Lanka
             </span>
 
-            {/* Bold Minimalist Title */}
+            {/* Calm, Poetic Title */}
             <h1 className={styles.brandTitle}>
-              AQUA PRO
+              Living art in calm water.
             </h1>
 
-            {/* Short 1-sentence poetic subhead */}
+            {/* Short 1-sentence calm subhead */}
             <p className={styles.punchline}>
-              Quarantined livestock, precision equipment, and custom nature aquascapes.
+              Quarantine-certified fish, Japanese nature aquascapes, and rimless ultra-clear glass.
             </p>
 
             {/* Minimalist Tactile Action Links */}
             <div className={styles.actions}>
               <Link href="/shop" className={styles.btnPrimary} id="hero-btn-shop">
-                Explore Catalog
+                Explore Collection
               </Link>
               <Link href="/services" className={styles.btnGhost} id="hero-btn-services">
                 Custom Builds
@@ -453,7 +453,7 @@ export default function Hero() {
             {/* Interactive Cursor Guide Hint */}
             <div className={`${styles.guideHint} ${hasInteracted ? styles.guideHintFaded : ''}`}>
               <span className={styles.guideDot} />
-              <span>Move cursor to guide the fish</span>
+              <span>Guide the fish with your cursor</span>
             </div>
 
           </div>
