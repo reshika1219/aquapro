@@ -122,11 +122,23 @@ export default function Header() {
         role="banner"
       >
         <div className={styles.utilityBar}>
-          <div className={styles.utilityInner}>
+          {/* Duplicated content for seamless marquee loop */}
+          <div className={styles.utilityInner} aria-live="off">
             <span>Healthy livestock, carefully packed</span>
             <span className={styles.utilityDivider} aria-hidden="true" />
             <span>Islandwide delivery available</span>
-            <Link href="/offers">See current offers</Link>
+            <span className={styles.utilityDivider} aria-hidden="true" />
+            <Link href="/offers">See current offers →</Link>
+            <span className={styles.utilityDivider} aria-hidden="true" />
+            <span>500+ species in store</span>
+            <span className={styles.utilityDivider} aria-hidden="true" />
+            <span>Healthy livestock, carefully packed</span>
+            <span className={styles.utilityDivider} aria-hidden="true" />
+            <span>Islandwide delivery available</span>
+            <span className={styles.utilityDivider} aria-hidden="true" />
+            <Link href="/offers" tabIndex={-1} aria-hidden="true">See current offers →</Link>
+            <span className={styles.utilityDivider} aria-hidden="true" />
+            <span>500+ species in store</span>
           </div>
         </div>
         <div className={styles.inner}>
